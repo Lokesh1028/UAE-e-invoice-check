@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAE e-invoice readiness check — free PINT AE validator</title>
+<meta name="description" content="Free check: upload your invoice export (Excel, CSV, PDF or XML) and see exactly which UAE e-invoicing (PINT AE) rules your invoices fail, in plain language. No sign-up.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2310243E'/><path d='M28 52l14 14 30-32' stroke='%23E3A85A' stroke-width='10' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap row">
+    <a class="brand" href="/"><span class="logo">✓</span> UAE e-invoice readiness check</a>
+    <nav>
+      <a href="#check">Readiness check</a>
+      <a href="#xml">XML validator</a>
+      <a href="#lookup">Buyer lookup</a>
+      <a href="#how">How it works</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">Free · No sign-up · Files are processed in memory and never stored</p>
+    <h1>Will your invoices pass the UAE e-invoicing rules?</h1>
+    <p class="lead">Upload the invoice export you already have — Excel, CSV, a PDF invoice or a PINT AE XML — and get a plain-language list of what is missing or wrong, checked against the official Ministry of Finance / OpenPeppol <strong>PINT AE 1.0.2</strong> rule set (303 rules) and the UBL 2.1 schema.</p>
+    <div class="dates">
+      <div><b>Revenue ≥ AED 50M</b><span>Appoint ASP by 30 Oct 2026 · live 1 Jan 2027</span></div>
+      <div><b>Revenue &lt; AED 50M</b><span>Appoint ASP by 31 Mar 2027 · live 1 Jul 2027</span></div>
+      <div><b>Penalties</b><span>AED 5,000 / month · AED 100 / invoice</span></div>
+    </div>
+  </section>
+
+  <section id="check" class="card">
+    <h2>1. Invoice readiness check</h2>
+    <p class="muted">Best input: the sales register or invoice export from Tally, Zoho, QuickBooks, Oracle, SAP B1 or Excel, with one row per line item. Workbooks with customer, item and tax-code sheets are joined automatically. A single PDF invoice works too (text PDFs only).</p>
+    <form id="form" class="upload" enctype="multipart/form-data">
+      <label class="drop" id="drop">
+        <input type="file" id="file" name="file" accept=".xlsx,.xlsm,.csv,.txt,.pdf,.xml" required>
+        <span class="drop-title">Drop a file here or click to choose</span>
+        <span class="drop-sub">.xlsx · .csv · .pdf · .xml — up to 8 MB, up to 20,000 rows</span>
+        <span class="drop-file" id="fname"></span>
+      </label>
+      <details class="seller" id="sellerbox">
+        <summary>Your company details (needed when the export has no seller/entity sheet — Tally and most accounting exports don't). Saved in this browser only.</summary>
+        <div class="grid">
+          <label>Legal name<input type="text" name="seller_name" placeholder="Example Trading L.L.C."></label>
+          <label>TIN (10 digits)<input type="text" name="seller_tin" inputmode="numeric" placeholder="1001234567"></label>
+          <label>TRN (15 digits)<input type="text" name="seller_trn" inputmode="numeric" placeholder="100123456700003"></label>
+          <label>Trade licence no.<input type="text" name="seller_licence_no" placeholder="CN-1234567"></label>
+          <label>Licensing authority<input type="text" name="seller_licence_authority" placeholder="Dubai DET"></label>
+          <label>Street / area<input type="text" name="seller_street" placeholder="Warehouse 9, Al Quoz 3"></label>
+          <label>City<input type="text" name="seller_city" placeholder="Dubai"></label>
+          <label>Emirate<select name="seller_emirate"><option value="">—</option><option value="AUH">Abu Dhabi</option><option value="DXB">Dubai</option><option value="SHJ">Sharjah</option><option value="AJM">Ajman</option><option value="UAQ">Umm Al Quwain</option><option value="RAK">Ras Al Khaimah</option><option value="FUJ">Fujairah</option></select></label>
+        </div>
+      </details>
+      <div class="row gap">
+        <button type="submit" class="btn primary" id="run">Run the check</button>
+        <a class="btn ghost" href="/api/template.csv">Download CSV template</a>
+        <label class="chk"><input type="checkbox" id="showxml"> include generated XML (for developers)</label>
+      </div>
+    </form>
+    <div id="mapping" class="mapping hidden"></div>
+    <div id="progress" class="progress hidden"><div class="bar"></div><span>Checking… converting rows to PINT AE and running 303 rules</span></div>
+    <div id="error" class="error hidden"></div>
+    <div id="result" class="result hidden"></div>
+  </section>
+
+  <section id="xml" class="card">
+    <h2>2. PINT AE XML validator</h2>
+    <p class="muted">For developers and ASP integration teams: paste or upload a UBL 2.1 Invoice / CreditNote. Runs XSD validation, then the shared PINT rules and the UAE-specific rules (the same artefacts your ASP uses).</p>
+    <form id="xmlform">
+      <textarea id="xmltext" rows="8" placeholder="&lt;Invoice xmlns=&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot; …" spellcheck="false"></textarea>
+      <div class="row gap">
+        <input type="file" id="xmlfile" accept=".xml,text/xml">
+        <button type="submit" class="btn primary">Validate XML</button>
+        <button type="button" class="btn ghost" id="xmlsample">Load the official sample</button>
+      </div>
+    </form>
+    <div id="xmlresult" class="result hidden"></div>
+  </section>
+
+  <section id="lookup" class="card">
+    <h2>3. Can this customer receive e-invoices yet?</h2>
+    <p class="muted">Enter a UAE Tax Identification Number (TIN, 10 digits starting with 1 — not the 15-digit TRN). We check the live Peppol network registry (SML) and the Peppol Directory. If the TIN is not registered, an e-invoice cannot be delivered to that business today.</p>
+    <form id="lookupform" class="row gap">
+      <input type="text" id="tin" inputmode="numeric" pattern="1[0-9]{9}" maxlength="12" placeholder="1003513304" required>
+      <button type="submit" class="btn primary">Check</button>
+    </form>
+    <div id="lookupresult" class="result hidden"></div>
+  </section>
+
+  <section id="how" class="card plain">
+    <h2>How this works, and what it is not</h2>
+    <div class="cols">
+      <div>
+        <h3>What we check</h3>
+        <ul>
+          <li>Each invoice row set is converted into the mandatory UAE format (PINT AE, UBL 2.1 XML) using only your data.</li>
+          <li>The XML is checked against the UBL 2.1 schema, the shared PINT rules and the UAE-specific rules published by the Ministry of Finance via OpenPeppol (version 1.0.2, 28 Jan 2026).</li>
+          <li>Every failed rule is translated into plain language with the field to look at and how to fix it.</li>
+          <li>Technical identifiers that your invoicing software will generate (UUID, specification IDs, line numbers) are filled in automatically; nothing else is assumed.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What we do not do</h3>
+        <ul>
+          <li>We do not store your file, your invoices or your customers. Processing happens in memory and the result lives only in your browser until you download the PDF.</li>
+          <li>We are not an Accredited Service Provider and do not transmit invoices. This is a readiness check, not a filing.</li>
+          <li>Rule sets change. Re-run the check when the Ministry publishes an update.</li>
+          <li>This is not tax advice. Confirm treatments with your tax agent.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card cta" id="cta">
+    <h2>Want the report emailed, or help fixing your data?</h2>
+    <p class="muted">Leave an email or WhatsApp number and we will send the PDF report and a short note on the fastest way to close the gaps. No spam, no newsletter.</p>
+    <form id="leadform" class="row gap wrap-row">
+      <input type="email" id="lead_email" placeholder="you@company.ae">
+      <input type="tel" id="lead_whatsapp" placeholder="+971 5x xxx xxxx">
+      <input type="text" id="lead_company" placeholder="Company (optional)">
+      <button type="submit" class="btn primary">Send me the report</button>
+    </form>
+    <div id="leadresult" class="muted"></div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Rule set: PINT AE Billing 1.0.2 (OpenPeppol / UAE Peppol Authority) · UBL 2.1 (OASIS) · Deadlines per UAE Ministry of Finance, Ministerial Decisions 243/244 of 2025 as amended · Penalties per Cabinet Decision 106 of 2025. Not affiliated with the Ministry of Finance or the Federal Tax Authority.</p>
+  <p><a href="/api/rules">All 303 rules in plain language</a> · <a href="/api/docs">API</a> · <span id="year"></span></p>
+</footer>
+<script src="/static/app.js" defer></script>
+</body>
+</html>

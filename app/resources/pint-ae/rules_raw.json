@@ -1,0 +1,3032 @@
+{
+ "ibr-068": {
+  "flag": "fatal",
+  "message": "[ibr-068]-GLN MUST have a valid format according to GS1 rules for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-127": {
+  "flag": "fatal",
+  "message": "[ibr-127]-Swedish organization number MUST be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-069": {
+  "flag": "fatal",
+  "message": "[ibr-069]-Norwegian organization number MUST be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-070": {
+  "flag": "fatal",
+  "message": "[ibr-070]-Danish organization number (CVR) MUST be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-113": {
+  "flag": "fatal",
+  "message": "[ibr-113]-Belgian enterprise number MUST be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-114": {
+  "flag": "fatal",
+  "message": "[ibr-114]-IPA Code (Codice Univoco Unit\u00e0 Organizzativa) must be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-115": {
+  "flag": "fatal",
+  "message": "[ibr-115]-Tax Code (Codice Fiscale) must be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0210'] | cac:PartyIdentification/cbc:ID[@schemeID = '0210'] | cbc:CompanyID[@schemeID = '0210'] | cbc:EndpointID[@schemeID = '9907'] | cac:PartyIdentification/cbc:ID[@schemeID = '9907'] | cbc:CompanyID[@schemeID = '9907']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-116": {
+  "flag": "fatal",
+  "message": "[ibr-116]-Italian VAT Code (Partita Iva) must be stated in the correct format for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0211'] | cac:PartyIdentification/cbc:ID[@schemeID = '0211'] | cbc:CompanyID[@schemeID = '0211'] | cbc:EndpointID[@schemeID = '9906'] | cac:PartyIdentification/cbc:ID[@schemeID = '9906'] | cbc:CompanyID[@schemeID = '9906']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-120": {
+  "flag": "fatal",
+  "message": "[ibr-120]-Australian Business Number (ABN) must be stated in the correct format for for endpoints (ibt-034), (ibt-049), party identification (ibt-029), (ibt-046), (ibt-060), legal entities (ibt-030), (ibt-047), (ibt-061).",
+  "context": "cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-083": {
+  "flag": "fatal",
+  "message": "[ibr-083]-Charge on price level (ibt-147) is NOT allowed. Only value 'false' allowed.",
+  "context": "cac:Price/cac:AllowanceCharge",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-30": {
+  "flag": "fatal",
+  "message": "[ibr-sr-30]-Allowance reason (ibt-097) MUST occur maximum once",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-031": {
+  "flag": "fatal",
+  "message": "[ibr-031]-Allowance (ibg-20) MUST have an allowance amount (ibt-092).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-033": {
+  "flag": "fatal",
+  "message": "[ibr-033]-Each Document level allowance (ibg-20) MUST have a Document level allowance reason (ibt-097) or a Document level allowance reason code (ibt-098).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-041": {
+  "flag": "fatal",
+  "message": "[ibr-041]-Each Invoice line allowance (ibg-27) MUST have an Invoice line allowance amount (ibt-136).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-042": {
+  "flag": "fatal",
+  "message": "[ibr-042]-Each Invoice line allowance (ibg-27) MUST have an Invoice line allowance reason (ibt-139) or an Invoice line allowance reason code (ibt-140).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-036": {
+  "flag": "fatal",
+  "message": "[ibr-036]-Charge (ibg-21) MUST have a charge amount (ibt-099).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-31": {
+  "flag": "fatal",
+  "message": "[ibr-sr-31]-Charge reason (ibt-104) MUST occur maximum once",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-038": {
+  "flag": "fatal",
+  "message": "[ibr-038]-Each Document level charge (ibg-21) MUST have a Document level charge reason (ibt-104) or a Document level charge reason code (ibt-105).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-043": {
+  "flag": "fatal",
+  "message": "[ibr-043]-Each Invoice line charge (ibg-28) MUST have an Invoice line charge amount (ibt-141).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-044": {
+  "flag": "fatal",
+  "message": "[ibr-044]-Each Invoice line charge (ibg-28) MUST have an Invoice line charge reason (ibt-144) or an invoice line charge reason code (ibt-145).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-082": {
+  "flag": "fatal",
+  "message": "[ibr-082]-Allowance/charge indicator value MUST equal 'true' or 'false'.",
+  "context": "cac:AllowanceCharge",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-61": {
+  "flag": "fatal",
+  "message": "[ibr-sr-61]-Allowance/charge tax exemption reason (ibt-197) (ibt-199) MUST occur maximum once.",
+  "context": "cac:AllowanceCharge/cac:TaxCategory",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-052": {
+  "flag": "fatal",
+  "message": "[ibr-052]-Each Additional supporting document (ibg-24) MUST contain a Supporting document reference (ibt-122).",
+  "context": "cac:AdditionalDocumentReference",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-33": {
+  "flag": "fatal",
+  "message": "[ibr-sr-33]-Supporting document description (ibt-123) MUST occur maximum once",
+  "context": "cac:AdditionalDocumentReference",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-080": {
+  "flag": "fatal",
+  "message": "[ibr-080]-The Buyer electronic address (ibt-049) MUST be provided.",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-063": {
+  "flag": "fatal",
+  "message": "[ibr-063]-The Buyer electronic address (ibt-049) MUST have a Scheme identifier.",
+  "context": "cac:AccountingCustomerParty/cac:Party/cbc:EndpointID",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-011": {
+  "flag": "fatal",
+  "message": "[ibr-011]-The Buyer postal address (ibg-08) MUST contain a Buyer country code (ibt-055).",
+  "context": "cac:AccountingCustomerParty/cac:Party/cac:PostalAddress",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-54": {
+  "flag": "fatal",
+  "message": "[ibr-sr-54]-The Buyer Postal Address Line (ibt-163) MUST occur maximum once",
+  "context": "cac:AccountingCustomerParty/cac:Party/cac:PostalAddress",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-057": {
+  "flag": "fatal",
+  "message": "[ibr-057]-Each Deliver to address (ibg-15) MUST contain a Deliver to country code (ibt-080).",
+  "context": "cac:Delivery/cac:DeliveryLocation/cac:Address",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-56": {
+  "flag": "fatal",
+  "message": "[ibr-sr-56]-The Delivery Postal Address Line (ibt-165) MUST occur maximum once",
+  "context": "cac:Delivery/cac:DeliveryLocation/cac:Address",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-012": {
+  "flag": "fatal",
+  "message": "[ibr-012]-An Invoice MUST have the Sum of Invoice line net amount (ibt-106).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-013": {
+  "flag": "fatal",
+  "message": "[ibr-013]-An Invoice MUST have the Invoice total amount without Tax (ibt-109).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-014": {
+  "flag": "fatal",
+  "message": "[ibr-014]-An Invoice MUST have the Invoice total amount with Tax (ibt-112).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-015": {
+  "flag": "fatal",
+  "message": "[ibr-015]-An Invoice MUST have the Amount due for payment (ibt-115).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-091": {
+  "flag": "fatal",
+  "message": "[ibr-091]-Invoice amount due for payment (ibt-115) MUST have no more than 2 decimals.",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-121": {
+  "flag": "fatal",
+  "message": "[ibr-121]-Document level allowance amount (ibt-107) MUST have no more than 2 decimals.",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-122": {
+  "flag": "fatal",
+  "message": "[ibr-122]-Document level charge amount (ibt-108) MUST have no more than 2 decimals.",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-123": {
+  "flag": "fatal",
+  "message": "[ibr-123]-Invoice total amount without TAX (ibt-109) MUST have no more than 2 decimals.",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-125": {
+  "flag": "fatal",
+  "message": "[ibr-125]- Invoice total amount with TAX (ibt-112) MUST have no more than 2 decimals.",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-10": {
+  "flag": "fatal",
+  "message": "[ibr-co-10]-Sum of Invoice line net amount (ibt-106) = \u03a3 Invoice line net amount (ibt-131).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-11": {
+  "flag": "fatal",
+  "message": "[ibr-co-11]-Sum of allowances on document level (ibt-107) = \u03a3 Document level allowance amount (ibt-092).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-12": {
+  "flag": "fatal",
+  "message": "[ibr-co-12]-Sum of charges on document level (ibt-108) = \u03a3 Document level charge amount (ibt-099).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-13": {
+  "flag": "fatal",
+  "message": "[ibr-co-13]-Invoice total amount without Tax (ibt-109) = \u03a3 Invoice line net amount (ibt-131) - Sum of allowances on document level (ibt-107) + Sum of charges on document level (ibt-108).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-16": {
+  "flag": "fatal",
+  "message": "[ibr-co-16]-Amount due for payment (ibt-115) = Invoice total amount with Tax (ibt-112) - Paid amount (ibt-113) + Rounding amount (ibt-114).",
+  "context": "cac:LegalMonetaryTotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-001": {
+  "flag": "fatal",
+  "message": "[ibr-001]-An Invoice MUST have a Specification identifier (ibt-024).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-63": {
+  "flag": "fatal",
+  "message": "[ibr-sr-63] - A Specification identifier must not contain a wildcard character such as '*'. (ibt-024)",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-002": {
+  "flag": "fatal",
+  "message": "[ibr-002]-An Invoice MUST have an Invoice number (ibt-001).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-003": {
+  "flag": "fatal",
+  "message": "[ibr-003]-An Invoice MUST have an Invoice issue date (ibt-002).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-004": {
+  "flag": "fatal",
+  "message": "[ibr-004]-An Invoice MUST have an Invoice type code (ibt-003).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-005": {
+  "flag": "fatal",
+  "message": "[ibr-005]-An Invoice MUST have an Invoice currency code (ibt-005).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-006": {
+  "flag": "fatal",
+  "message": "[ibr-006]-An Invoice MUST contain the Seller name (ibt-027).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-007": {
+  "flag": "fatal",
+  "message": "[ibr-007]-An Invoice MUST contain the Buyer name (ibt-044).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-008": {
+  "flag": "fatal",
+  "message": "[ibr-008]-An Invoice MUST contain the Seller postal address (ibg-05).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-010": {
+  "flag": "fatal",
+  "message": "[ibr-010]-An Invoice MUST contain the Buyer postal address (ibg-08).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-016": {
+  "flag": "fatal",
+  "message": "[ibr-016]-An Invoice MUST have at least one Invoice line (ibg-25)",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-053": {
+  "flag": "fatal",
+  "message": "[ibr-053]-If the Tax accounting currency code (ibt-006) is present, then the Invoice total Tax amount in accounting currency (ibt-111) MUST be provided.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-066": {
+  "flag": "fatal",
+  "message": "[ibr-066]-An Invoice MUST contain maximum one Payment Card account (ibg-18).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-067": {
+  "flag": "fatal",
+  "message": "[ibr-067]-An Invoice MUST contain maximum one Payment Mandate (ibg-19).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-071": {
+  "flag": "fatal",
+  "message": "[ibr-071]-An invoice should not include an AdditonalDocumentReference (ibg-24) simultaneously referring an Invoice Object Identifier (ibt-018) and an Attachment (ibt-125).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-072": {
+  "flag": "fatal",
+  "message": "[ibr-072]-An invoice MUST not include an AdditionalDocumentReference (ibg-24) simultaneously referring an Invoice Object Identifier (ibt-018) and an Document Description (ibt-123).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-076": {
+  "flag": "fatal",
+  "message": "[ibr-076]-Business process (ibt-023) MUST be provided.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-078": {
+  "flag": "fatal",
+  "message": "[ibr-078]-Only one invoiced object (ibt-018) is allowed on document level.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-084": {
+  "flag": "fatal",
+  "message": "[ibr-084]-Invoice total tax amount (ibt-110) and Invoice total tax amount in accounting currency (ibt-111) MUST have the same operational sign.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-090": {
+  "flag": "fatal",
+  "message": "[ibr-090]-Only one project reference (ibt-011) is allowed on document level.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-094": {
+  "flag": "fatal",
+  "message": "[ibr-094]-Contract reference (ibt-012) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-095": {
+  "flag": "fatal",
+  "message": "[ibr-095]-Receiving advice reference (ibt-015) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-096": {
+  "flag": "fatal",
+  "message": "[ibr-096]-Despatch advice reference (ibt-016) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-097": {
+  "flag": "fatal",
+  "message": "[ibr-097]-Invoicing period (ibg-14) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-098": {
+  "flag": "fatal",
+  "message": "[ibr-098]-Seller name (ibt-027) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-099": {
+  "flag": "fatal",
+  "message": "[ibr-099]-Seller trader name (ibt-028) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-100": {
+  "flag": "fatal",
+  "message": "[ibr-100]-Seller legal registration identifier (ibt-030) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-101": {
+  "flag": "fatal",
+  "message": "[ibr-101]-Seller additional legal information (ibt-033) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-102": {
+  "flag": "fatal",
+  "message": "[ibr-102]-Buyer name (ibt-044) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-103": {
+  "flag": "fatal",
+  "message": "[ibr-103]-Buyer legal registration identifier (ibt-047) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-104": {
+  "flag": "fatal",
+  "message": "[ibr-104]-Buyer tax identifier (ibt-048) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-107": {
+  "flag": "fatal",
+  "message": "[ibr-107]-Deliver to information (ibg-13) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-112": {
+  "flag": "fatal",
+  "message": "[ibr-112]-Buyer trader name (ibt-045) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-15": {
+  "flag": "fatal",
+  "message": "[ibr-co-15]-Invoice total amount with Tax (ibt-112) = Invoice total amount without Tax (ibt-109) + Invoice total Tax amount (ibt-110).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-16": {
+  "flag": "fatal",
+  "message": "[ibr-sr-16]-Buyer identifier (ibt-046) MUST occur maximum once",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-39": {
+  "flag": "fatal",
+  "message": "[ibr-sr-39]-Project reference (ibt-011) MUST occur maximum once.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-49": {
+  "flag": "fatal",
+  "message": "[ibr-sr-49]-Value tax point date (ibt-007) MUST occur maximum once",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-51": {
+  "flag": "fatal",
+  "message": "[ibr-sr-51]-Note (ibt-022) MUST occur maximum once",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-52": {
+  "flag": "fatal",
+  "message": "[ibr-sr-52]-Tender or lot reference (ibt-017) MUST occur maximum once",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-021": {
+  "flag": "fatal",
+  "message": "[ibr-021]-Each Invoice line (ibg-25) MUST have an Invoice line identifier (ibt-126).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-022": {
+  "flag": "fatal",
+  "message": "[ibr-022]-Each Invoice line (ibg-25) MUST have an invoiced quantity (ibt-129)..",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-023": {
+  "flag": "fatal",
+  "message": "[ibr-023]-An Invoice line (ibg-25) MUST have an Invoiced quantity unit of measure code (ibt-130).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-024": {
+  "flag": "fatal",
+  "message": "[ibr-024]-Each Invoice line (ibg-25) MUST have an Invoice line net amount (ibt-131).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-025": {
+  "flag": "fatal",
+  "message": "[ibr-025]-Each Invoice line (ibg-25) MUST contain the Item name (ibt-153).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-026": {
+  "flag": "fatal",
+  "message": "[ibr-026]-Each Invoice line (ibg-25) MUST contain the Item net price (ibt-146).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-027": {
+  "flag": "fatal",
+  "message": "[ibr-027]-The Item net price (ibt-146) MUST NOT be negative.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-028": {
+  "flag": "fatal",
+  "message": "[ibr-028]-The Item gross price (ibt-148) MUST NOT be negative.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-087": {
+  "flag": "fatal",
+  "message": "[ibr-087]-Base quantity (ibt-149) MUST be a positive number above zero.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-089": {
+  "flag": "fatal",
+  "message": "[ibr-089]-Only one invoiced object (ibt-128) is allowed per line (ibg-25).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-109": {
+  "flag": "fatal",
+  "message": "[ibr-109]-Referenced purchase order line identifier (ibt-132) MUST occur maximum once.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-110": {
+  "flag": "fatal",
+  "message": "[ibr-110]-Invoice line period (ibg-26) MUST occur maximum once.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-111": {
+  "flag": "fatal",
+  "message": "[ibr-111]-Item price discount (ibt-147) MUST occur maximum once.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-34": {
+  "flag": "fatal",
+  "message": "[ibr-sr-34]-Invoice line note (ibt-127) MUST occur maximum once",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-38": {
+  "flag": "fatal",
+  "message": "[ibr-sr-38]-Invoiced item tax exemption reason text (ibt-185) MUST occur maximum once",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-50": {
+  "flag": "fatal",
+  "message": "[ibr-sr-50]-Item description (ibt-154) MUST occur maximum once",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-085": {
+  "flag": "fatal",
+  "message": "[ibr-085]-Start date of line period (ibt-134) MUST be within invoice period (ibg-14).",
+  "context": "cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-086": {
+  "flag": "fatal",
+  "message": "[ibr-086]-End date of line period (ibt-135) MUST be within invoice period (ibg-14).",
+  "context": "cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-030": {
+  "flag": "fatal",
+  "message": "[ibr-030]-If both Invoice line period start date (ibt-134) and Invoice line period end date (ibt-135) are given then the Invoice line period end date (ibt-135) MUST be later or equal to the Invoice line period start date (ibt-134).",
+  "context": "cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-20": {
+  "flag": "fatal",
+  "message": "[ibr-co-20]-If Invoice line period (ibg-26) is used, the Invoice line period start date (ibt-134) or the Invoice line period end date (ibt-135) MUST be filled, or both.",
+  "context": "cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-029": {
+  "flag": "fatal",
+  "message": "[ibr-029]-If both Invoicing period start date (ibt-073) and Invoicing period end date (ibt-074) are given then the Invoicing period end date (ibt-074) MUST be later or equal to the Invoicing period start date (ibt-073).",
+  "context": "cac:InvoicePeriod",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-19": {
+  "flag": "fatal",
+  "message": "[ibr-co-19]-If Invoicing period (ibg-14) is used, the Invoicing period start date (ibt-073) or the Invoicing period end date (ibt-074) MUST be filled, or both.",
+  "context": "cac:InvoicePeriod",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-054": {
+  "flag": "fatal",
+  "message": "[ibr-054]-Each Item attribute (ibg-32) MUST contain an Item attribute name (ibt-160) and an Item attribute value (ibt-161).",
+  "context": "//cac:AdditionalItemProperty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-065": {
+  "flag": "fatal",
+  "message": "[ibr-065]-The Item classification identifier (ibt-158) MUST have a Scheme identifier.",
+  "context": "cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-064": {
+  "flag": "fatal",
+  "message": "[ibr-064]-The Item standard identifier (ibt-157) MUST have a Scheme identifier.",
+  "context": "cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID | cac:CreditNoteLine/cac:Item/cac:StandardItemIdentification/cbc:ID",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-58": {
+  "flag": "fatal",
+  "message": "[ibr-sr-58]-The Invoiced item TAX category code (ibt-151) MUST be present.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-017": {
+  "flag": "fatal",
+  "message": "[ibr-017]-The Payee name (ibt-059) MUST be provided in the Invoice, if the Payee (ibg-10) is different from the Seller (ibg-04).",
+  "context": "cac:PayeeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-105": {
+  "flag": "fatal",
+  "message": "[ibr-105]-The Payee identifier (ibt-060) MUST occur maximum once in the Invoice, if the Payee (ibg-10) is different from the Seller (ibg-04).",
+  "context": "cac:PayeeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-106": {
+  "flag": "fatal",
+  "message": "[ibr-106]-The Payee legal identifier (ibt-061) MUST occur maximum once in the Invoice, if the Payee (ibg-10) is different from the Seller (ibg-04).",
+  "context": "cac:PayeeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-19": {
+  "flag": "fatal",
+  "message": "[ibr-sr-19]-Payee name (ibt-059) MUST occur maximum once, if the Payee is different from the Seller",
+  "context": "cac:PayeeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-59": {
+  "flag": "fatal",
+  "message": "[ibr-sr-59]-The Payee Postal Address Line (ibt-174) MUST occur maximum once",
+  "context": "cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:Address",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-049": {
+  "flag": "fatal",
+  "message": "[ibr-049]-A Payment instruction (ibg-16) MUST specify the Payment means type code (ibt-081).",
+  "context": "cac:PaymentMeans",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-27": {
+  "flag": "fatal",
+  "message": "[ibr-sr-27]-Payment means text (ibt-081) MUST occur maximum once",
+  "context": "cac:PaymentMeans",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-28": {
+  "flag": "fatal",
+  "message": "[ibr-sr-28]-Mandate reference identifier (ibt-089) MUST occur maximum once",
+  "context": "cac:PaymentMeans",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-45": {
+  "flag": "fatal",
+  "message": "[ibr-sr-45]-Due Date (ibt-009) MUST occur maximum once",
+  "context": "cac:PaymentMeans",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-46": {
+  "flag": "fatal",
+  "message": "[ibr-sr-46]-Payment means text (ibt-082) MUST occur maximum once",
+  "context": "cac:PaymentMeans",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-126": {
+  "flag": "fatal",
+  "message": "[ibr-126]- All currencyID attributes must have the same value as the Invoice currency code (ibt-005), except for amounts expected to be in Tax accounting currency (ibt-006).",
+  "context": "cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount | cac:TaxTotal[cbc:TaxAmount/@currencyID=/*/cbc:DocumentCurrencyCode]/cbc:TaxAmount | cac:TaxTotal[cbc:TaxAmount/@currencyID=/*/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cbc:TaxableAmount | cac:TaxTotal[cbc:TaxAmount/@currencyID=/*/cbc:DocumentCurrencyCode]/cac:TaxSubtotal/cbc:TaxAmount",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-05": {
+  "flag": "fatal",
+  "message": "[ibr-sr-05]-Payment terms (ibt-020) MUST occur maximum once.",
+  "context": "cac:PaymentTerms",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-60": {
+  "flag": "fatal",
+  "message": "[ibr-sr-60]-Payment Instruction ID (ibt-187) MUST occur maximum once.",
+  "context": "cac:PaymentTerms",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-055": {
+  "flag": "fatal",
+  "message": "[ibr-055]-Each Preceding Invoice reference (ibg-03) MUST contain a Preceding Invoice reference (ibt-025).",
+  "context": "cac:BillingReference",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-07": {
+  "flag": "fatal",
+  "message": "[ibr-sr-07]-If there is a preceding invoice reference (ibg-03) , the preceding invoice number (ibt-025) MUST be present",
+  "context": "cac:BillingReference",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-06": {
+  "flag": "fatal",
+  "message": "[ibr-sr-06]-Preceding invoice reference (ibt-025) MUST occur maximum once",
+  "context": "cac:BillingReference",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-26": {
+  "flag": "fatal",
+  "message": "[ibr-co-26]-In order for the buyer to automatically identify a supplier, the Seller identifier (ibt-029), the Seller legal registration identifier (ibt-030) and/or the Seller Tax identifier (ibt-031) MUST be present.",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-081": {
+  "flag": "fatal",
+  "message": "[ibr-081]-The Seller electronic address (ibt-049) MUST be provided.",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-42": {
+  "flag": "fatal",
+  "message": "[ibr-sr-42]-Party tax scheme MUST occur maximum twice in accounting supplier party",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-062": {
+  "flag": "fatal",
+  "message": "[ibr-062]-The Seller electronic address (ibt-034) MUST have a Scheme identifier.",
+  "context": "cac:AccountingSupplierParty/cac:Party/cbc:EndpointID",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-009": {
+  "flag": "fatal",
+  "message": "[ibr-009]-The Seller postal address (ibg-05) MUST contain a Seller country code (ibt-040).",
+  "context": "cac:AccountingSupplierParty/cac:Party/cac:PostalAddress",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-53": {
+  "flag": "fatal",
+  "message": "[ibr-sr-53]-The Seller Postal Address Line (ibt-162) MUST occur maximum once",
+  "context": "cac:AccountingSupplierParty/cac:Party/cac:PostalAddress",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-018": {
+  "flag": "fatal",
+  "message": "[ibr-018]-The Seller tax representative name (ibt-062) MUST be provided in the Invoice, if the Seller (ibg-04) has a Seller tax representative party (ibg-11)",
+  "context": "cac:TaxRepresentativeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-019": {
+  "flag": "fatal",
+  "message": "[ibr-019]-The Seller tax representative postal address (ibg-12) MUST be provided in the Invoice, if the Seller (ibg-04) has a Seller tax representative party (ibg-11).",
+  "context": "cac:TaxRepresentativeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-056": {
+  "flag": "fatal",
+  "message": "[ibr-056]-The Seller tax representative party (ibg-11) MUST have a Seller tax representative Tax identifier (ibt-063).",
+  "context": "cac:TaxRepresentativeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-22": {
+  "flag": "fatal",
+  "message": "[ibr-sr-22]-Seller tax representative name (ibt-062) MUST occur maximum once, if the Seller has a tax representative",
+  "context": "cac:TaxRepresentativeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-23": {
+  "flag": "fatal",
+  "message": "[ibr-sr-23]-Seller tax representative tax identifier (ibt-063) MUST occur maximum once, if the Seller has a tax representative",
+  "context": "cac:TaxRepresentativeParty",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-020": {
+  "flag": "fatal",
+  "message": "[ibr-020]-The Seller tax representative postal address (ibg-12) MUST contain a Tax representative country code (ibt-069), if the Seller (ibg-04) has a Seller tax representative party (ibg-11).",
+  "context": "cac:TaxRepresentativeParty/cac:PostalAddress",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-55": {
+  "flag": "fatal",
+  "message": "[ibr-sr-55]-The Tax Representative Postal Address Line (ibt-164) MUST occur maximum once",
+  "context": "cac:TaxRepresentativeParty/cac:PostalAddress",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-124": {
+  "flag": "fatal",
+  "message": "[ibr-124]-Invoice total TAX amount (ibt-110) MUST have no more than 2 decimals.",
+  "context": "/ubl:Invoice/cac:TaxTotal | /cn:CreditNote/cac:Taxtotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-co-14": {
+  "flag": "fatal",
+  "message": "[ibr-co-14]-Invoice total Tax amount (ibt-110) = \u03a3 Tax category tax amount (ibt-117).",
+  "context": "/ubl:Invoice/cac:TaxTotal | /cn:CreditNote/cac:Taxtotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-32": {
+  "flag": "fatal",
+  "message": "[ibr-sr-32]-VAT exemption reason text (ibt-120) MUST occur maximum once.",
+  "context": "//cac:TaxSubtotal",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-57": {
+  "flag": "fatal",
+  "message": "[ibr-sr-57]-Company identifier MUST exist in the party tax scheme class.",
+  "context": "//cac:PartyTaxScheme",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-073": {
+  "flag": "fatal",
+  "message": "[ibr-073]-A date MUST be formatted YYYY-MM-DD in (ibt-002), (ibt-007), (ibt-009), (ibt-026), (ibt-072), (ibt-073), (ibt-074), (ibt-134), (ibt-135).",
+  "context": "cbc:IssueDate | cbc:DueDate | cbc:TaxPointDate | cbc:StartDate | cbc:EndDate | cbc:ActualDeliveryDate",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-119": {
+  "flag": "fatal",
+  "message": "[ibr-119]-A time MUST be formatted hh:mm:ss with optional fractional seconds .sss and time zone expression (ibt-168).",
+  "context": "//*[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2' and ends-with(local-name(), 'Time')]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-074": {
+  "flag": "fatal",
+  "message": "[ibr-074]-Binary object elements (ibt-125) MUST contain the mime code attribute (ibt-125-1).",
+  "context": "//*[ends-with(name(), 'BinaryObject')]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-075": {
+  "flag": "fatal",
+  "message": "[ibr-075]-Binary object elements (ibt-125) MUST contain the filename attribute (ibt-125-2).",
+  "context": "//*[ends-with(name(), 'BinaryObject')]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-077": {
+  "flag": "fatal",
+  "message": "[ibr-077]-Tax accounting currency code (ibt-006) MUST be different from invoice currency code (ibt-005) when provided.",
+  "context": "cbc:TaxCurrencyCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-079": {
+  "flag": "fatal",
+  "message": "[ibr-079]-Document MUST not contain empty elements.",
+  "context": "//*[not(*) and not(normalize-space())]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-088": {
+  "flag": "fatal",
+  "message": "[ibr-088]-Unit code of price base quantity (ibt-150) MUST be same as invoiced quantity (ibt-130).",
+  "context": "cac:Price/cbc:BaseQuantity[@unitCode]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-092": {
+  "flag": "fatal",
+  "message": "[ibr-092]-If despatch advice reference exists on line (ibt-184) then there MUST not be despatch reference on document level (ibt-016).",
+  "context": "cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID | cac:CreditNoteLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-sr-62": {
+  "flag": "fatal",
+  "message": "[ibr-sr-62]-Despatch advice line reference (ibt-184) MUST occur maximum once.",
+  "context": "cac:InvoiceLine/cac:DespatchLineReference | cac:CreditNoteLine/cac:DespatchLineReference",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-093": {
+  "flag": "fatal",
+  "message": "[ibr-093]-If there is a paid amount (ibt-180) then total paid amount (ibt-113) MUST exist.",
+  "context": "cac:PrepaidPayment[1]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-108": {
+  "flag": "fatal",
+  "message": "[ibr-108]-Deliver to party name (ibt-070) MUST occur maximum once.",
+  "context": "cac:Delivery",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-01": {
+  "flag": "fatal",
+  "message": "[ibr-cl-01]-The document type code (ibt-003) MUST be coded by the invoice and credit note related code lists of UNTDID 1001.",
+  "context": "cbc:InvoiceTypeCode | cbc:CreditNoteTypeCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-03": {
+  "flag": "fatal",
+  "message": "[ibr-cl-03]-currencyID MUST be coded using ISO code list 4217 alpha-3.",
+  "context": "cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-04": {
+  "flag": "fatal",
+  "message": "[ibr-cl-04]-Invoice currency code (ibt-005) MUST be coded using ISO code list 4217 alpha-3",
+  "context": "cbc:DocumentCurrencyCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-05": {
+  "flag": "fatal",
+  "message": "[ibr-cl-05]-Tax currency code (ibt-006) MUST be coded using ISO code list 4217 alpha-3",
+  "context": "cbc:TaxCurrencyCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-07": {
+  "flag": "fatal",
+  "message": "[ibr-cl-07]-Object identifier identification scheme (ibt-018-1) (ibt-128-1) MUST be coded using a restriction of UNTDID 1153.",
+  "context": "cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID] | cac:DocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-10": {
+  "flag": "fatal",
+  "message": "[ibr-cl-10]-Any identifier identification scheme (ibt-046-1), (ibt-060-1) MUST be coded using one of the ISO 6523 ICD list.",
+  "context": "cac:PartyIdentification/cbc:ID[@schemeID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-11": {
+  "flag": "fatal",
+  "message": "[ibr-cl-11]-Any registration identifier identification scheme (ibt-030-1), (ibt-047-1), (ibt-061-1) MUST be coded using one of the ISO 6523 ICD list.",
+  "context": "cac:PartyLegalEntity/cbc:CompanyID[@schemeID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-13": {
+  "flag": "fatal",
+  "message": "[ibr-cl-13]-Item classification identifier identification scheme (ibt-158-1) MUST be coded using one of the UNTDID 7143 list.",
+  "context": "cac:CommodityClassification/cbc:ItemClassificationCode[@listID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-14": {
+  "flag": "fatal",
+  "message": "[ibr-cl-14]-Country codes in an invoice (ibt-040), (ibt-055), (ibt-069), (ibt-080), (ibt-175) MUST be coded using ISO code list 3166-1",
+  "context": "cac:Country/cbc:IdentificationCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-15": {
+  "flag": "fatal",
+  "message": "[ibr-cl-15]-Origin country codes in an invoice (ibt-159) MUST be coded using ISO code list 3166-1",
+  "context": "cac:OriginCountry/cbc:IdentificationCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-16": {
+  "flag": "fatal",
+  "message": "[ibr-cl-16]-Payment means in an invoice (ibt-081) MUST be coded using UNCL4461 code list",
+  "context": "cac:PaymentMeans/cbc:PaymentMeansCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-19": {
+  "flag": "fatal",
+  "message": "[ibr-cl-19]-Coded allowance reasons (ibt-098), (ibt-140) MUST belong to the UNCL 5189 code list",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]/cbc:AllowanceChargeReasonCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-20": {
+  "flag": "fatal",
+  "message": "[ibr-cl-20]-Coded charge reasons (ibt-105), (ibt-145) MUST belong to the UNCL 7161 code list",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]/cbc:AllowanceChargeReasonCode",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-21": {
+  "flag": "fatal",
+  "message": "[ibr-cl-21]-Item standard identifier scheme identifier (ibt-157) MUST belong to the ISO 6523 ICD list.",
+  "context": "cac:StandardItemIdentification/cbc:ID[@schemeID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-23": {
+  "flag": "fatal",
+  "message": "[ibr-cl-23]-Unit code (ibt-130), (ibt-150) MUST be coded according to the UN/ECE Recommendation 20 with Rec 21 extension",
+  "context": "cbc:InvoicedQuantity[@unitCode] | cbc:BaseQuantity[@unitCode] | cbc:CreditedQuantity[@unitCode]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-24": {
+  "flag": "fatal",
+  "message": "[ibr-cl-24]-Mime code (ibt-125-1) MUST be according to subset of IANA code list.",
+  "context": "cbc:EmbeddedDocumentBinaryObject[@mimeCode]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-25": {
+  "flag": "fatal",
+  "message": "[ibr-cl-25]-Endpoint identifier scheme identifier (ibt-034-1), (ibt-049-1) MUST belong to the CEF EAS code list",
+  "context": "cbc:EndpointID[@schemeID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-cl-26": {
+  "flag": "fatal",
+  "message": "[ibr-cl-26]-Delivery location identifier scheme identifier (ibt-071-1) MUST belong to the ISO 6523 ICD code list",
+  "context": "cac:DeliveryLocation/cbc:ID[@schemeID]",
+  "layer": "shared",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-010-ae": {
+  "flag": "fatal",
+  "message": "[ibr-010-ae]-Passport issuing country code (BTAE-19) MUST be there when Buyer legal registration identifier type (BTAE-16) is 'Passport'",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-101-ae": {
+  "flag": "fatal",
+  "message": "[ibr-101-ae]-Authority name (BTAE-11) MUST be there when Buyer legal registration identifier type (BTAE-16) is Commercial/Trade license.",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-136-ae": {
+  "flag": "fatal",
+  "message": "[ibr-136-ae]-Buyer legal registration identifier (IBT-047) must be present when Invoice type code [IBT-003] is 'Out of scope of VAT' or 'Credit note related to goods or services'",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-149-ae": {
+  "flag": "fatal",
+  "message": "[ibr-149-ae]-The buyer legal registration identifier (IBT-047) MUST be provided when the scheme identifier (IBT-049-1) is '0235' and buyer electronic address (IBT-049) is not '1XXXXXXXXX'",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-179-ae": {
+  "flag": "fatal",
+  "message": "[ibr-179-ae]-Buyer VAT identifier (IBT-048) MUST occur maximum once",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-135-ae": {
+  "flag": "fatal",
+  "message": "[ibr-135-ae]-Either Buyer identifier (IBT-046) or Buyer VAT identifier (IBT-048 ) MUST be present when the Invoice transaction type code [BTAE-02] is other than XXXXXXX1 (Exports) and scheme identifier (IBT-049-1) is '0235' and buyer electronic address (IBT-049) is not '1XXXXXXXXX'",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-180-ae": {
+  "flag": "fatal",
+  "message": "[ibr-180-ae]-When Scheme identifier (IBT-049-1) is '0235' and Buyer legal registration identifier (ibt-047) is provided, then Buyer legal registration identifier type (BTAE-16) MUST be present",
+  "context": "cac:AccountingCustomerParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-196-ae": {
+  "flag": "fatal",
+  "message": "[ibr-196-ae]- The Incoterms (BTAE-22) must be provided.",
+  "context": "cac:DeliveryTerms",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-144-ae": {
+  "flag": "fatal",
+  "message": "[ibr-144-ae]-In Buyer postal address (IBG-08), Address line 1 (IBT-050), Buyer city (IBT-052) and Buyer country subdivision (IBT-054) must be provided",
+  "context": "cac:AccountingCustomerParty/cac:Party/cac:PostalAddress",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-143-ae": {
+  "flag": "fatal",
+  "message": "[ibr-143-ae]-In Seller postal address (IBG-05), Seller address line 1 (IBT-035), Seller city (IBT-037) and Seller to country subdivision (IBT-039) must be provided.",
+  "context": "cac:AccountingBuyerParty/cac:Party/cac:PostalAddress",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-012-ae": {
+  "flag": "fatal",
+  "message": "[ibr-012-ae]-Passport issuing country code (BTAE-18) MUST be there when Seller legal registration identifier type (BTAE-15) is 'Passport'",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-172-ae": {
+  "flag": "fatal",
+  "message": "[ibr-172-ae]-Authority name (BTAE-12) MUST be there when the value in Seller legal registration identifier type (BTAE-15) is Commercial/Trade license.",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-177-ae": {
+  "flag": "fatal",
+  "message": "[ibr-177-ae]-Either Seller tax registration identifier (IBT-032) or Seller VAT identifier (IBT-031) MUST be provided",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-178-ae": {
+  "flag": "fatal",
+  "message": "[ibr-178-ae]-Tax scheme code, if provided in (IBT-031-1) shall be '!VAT' when Seller tax registration identifier (IBT-032) is provided",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-150-ae": {
+  "flag": "fatal",
+  "message": "[ibr-150-ae]-The Seller legal registration identifier (IBT-030) MUST be provided when the scheme identifier (IBT-034-1) is '0235'",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-173-ae": {
+  "flag": "fatal",
+  "message": "[ibr-173-ae]-The value in Seller legal registration identifier type [BTAE-15] Scheme identifier [IBT-030-1] should either be 'Commercial/Trade license' or 'Emirates ID' or 'Passport' or 'Cabinet decision' when the value in Seller legal registration identifier (IBT-030) is provided and scheme identifier (IBT-034-1) is '0235' and the Seller country code (IBT-055) is AE.",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-181-ae": {
+  "flag": "fatal",
+  "message": "[ibr-181-ae]-When Scheme identifier (IBT-034-1) is '0235' and Seller legal registration identifier (ibt-030) is provided, then Seller legal registration identifier type (BTAE-15) MUST be present",
+  "context": "cac:AccountingSupplierParty/cac:Party",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-004": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-004]-Item net price (ibt-146) MUST equal (Gross price (ibt-148) - Price discount (ibt-147)) when gross price is provided.",
+  "context": "cac:Price/cac:AllowanceCharge",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-126-ae": {
+  "flag": "fatal",
+  "message": "[ibr-126-ae]-In Price Details (IBG-29), Item price base quantity (IBT-149) and Item Gross Price (IBT-148) MUST be there.",
+  "context": "cac:Price",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-192-ae": {
+  "flag": "fatal",
+  "message": "[ibr-192-ae]- when Payment means type code (ibt-081) is 'credit transfer' then Payment account identifier (ibt-084) must be provided.",
+  "context": "cac:PaymentMeans",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-128-ae": {
+  "flag": "fatal",
+  "message": "[ibr-128-ae]-When Country code (IBT-040, IBT-055, IBT-069, IBT-080) is AE, then country subdivision (IBT-039, IBT-054, IBT-068, IBT-079) should be one among one of these (AUH, DXB, SHJ, UAQ, FUJ, AJM, RAK).",
+  "context": "cac:PostalAddress",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-032": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-032]-Each Document level allowance (ibg-20) MUST have a Document level allowance VAT category code (ibt-095).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-057": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-057]-Either both or neither Allowance base amount (ibt-093) and percentage (ibt-094) MUST be provided.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-131-ae": {
+  "flag": "fatal",
+  "message": "[ibr-131-ae]-Allowance amount (IBT-092, IBT-136) must equal base amount (IBT-093, IBT-137) * percentage (IBT-094, IBT-138) /100 if base amount and percentage exists",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-115-ae": {
+  "flag": "fatal",
+  "message": "[ibr-115-ae]-Document level allowance tax category code (IBT-095) cannot be 'Standard rate additional VAT'.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-168-ae": {
+  "flag": "fatal",
+  "message": "[ibr-168-ae]-Document level allowances (IBG-20) with Document level allowance VAT category code (IBT-095) as 'Exempt from VAT' MUST have a Document level allowance VAT exemption reason code (IBT-196)",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = false()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-037": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-037]-Each Document level charge (ibg-21) MUST have a Document level charge VAT category code (ibt-102).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-058": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-058]-Either both or neither Charge base amount (ibt-100) and percentage (ibt-101) MUST be provided.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-146-ae": {
+  "flag": "fatal",
+  "message": "[ibr-146-ae]-Charge amount (IBT-099, IBT-141) must equal base amount (IBT-100, IBT-142) * percentage (IBT-101, IBT-143) /100 if base amount and percentage exists",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-114-ae": {
+  "flag": "fatal",
+  "message": "[ibr-114-ae]-Document level charge VAT category code (IBT-102) cannot be 'Standard rate additional VAT'.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-169-ae": {
+  "flag": "fatal",
+  "message": "[ibr-169-ae]-Document level charge (IBG-21) with Document level charge VAT category code (IBT-102) as 'Exempt from VAT' MUST have a Document level charge VAT exemption reason code (IBT-198).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator = true()]",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-002-ae": {
+  "flag": "fatal",
+  "message": "[ibr-002-ae]-Currency exchange rate [BTAE-04] should contain the values till maximum of 6 decimal places.",
+  "context": "cbc:CalculationRate",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-104-ae": {
+  "flag": "fatal",
+  "message": "[ibr-104-ae]-An Invoice line (IBG-25), where Line VAT Information (IBG-30) is present then Invoice line amount in AED (BTAE-10) and VAT Line amount in AED (BTAE-08) must be provided.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-111-ae": {
+  "flag": "fatal",
+  "message": "[ibr-111-ae]-An Invoice line (IBG-25) where the VAT category code (IBT-151) is 'Standard rate additional VAT' the Invoiced item VAT rate (IBT-152) should not be zero.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-145-ae": {
+  "flag": "fatal",
+  "message": "[ibr-145-ae]-Each Invoice line (IBG-25) MUST be categorized with an Invoiced item VAT category code (IBT-151)..",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-147-ae": {
+  "flag": "fatal",
+  "message": "[ibr-147-ae]-Invoice line net amount (IBT-131) MUST equal (Invoiced quantity (IBT-129) * (Item net price (IBT-146)/item price base quantity (IBT-149)) + Sum of invoice line charge amount (IBT-141) - sum of invoice line allowance amount (IBT-136).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-167-ae": {
+  "flag": "fatal",
+  "message": "[ibr-167-ae]-Line VAT information (IBG-30) with Invoiced item VAT category code (IBT-151) as 'Exempt from VAT' MUST have a VAT exemption reason code (IBT-186).",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-123-ae": {
+  "flag": "fatal",
+  "message": "[ibr-123-ae]- Line VAT Information (IBG - 30) MUST be there and can occur maximum once except in case when invoice type code is 'Out of scope of VAT' or 'Credit note related to goods or services'.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-194-ae": {
+  "flag": "fatal",
+  "message": "[ibr-194-ae]- Invoice line Amount payable (BTAE-10) must be provided.",
+  "context": "cac:InvoiceLine | cac:CreditNoteLine",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-001-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-001-ae]-Specification identifier (ibt-024) MUST start with the value 'urn:peppol:pint:billing-1@ae-1' or 'urn:peppol:pint:selfbilling-1@ae-1'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-002-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-002-ae]-Business process (ibt-023) MUST be in the format 'urn:peppol:bis:billing' or 'urn:peppol:bis:selfbilling'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-e-01": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-e-01]-An Invoice that contains an Invoice line (ibg-25), a Document level allowance (ibg-20) or a Document level charge (ibg-21) where the VAT category code (ibt-151, ibt-95 or ibt-102) is \"Exempt from VAT\" MUST contain exactly one VAT breakdown (ibg-23) with the VAT category code (ibt-118) equal to \"Exempt from VAT\".",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-01": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-01]-An Invoice that contains an Invoice line (ibg-25), a Document level allowance (ibg-20) or a Document level charge (ibg-21) where the VAT category code (ibt-151, ibt-95 or ibt-102) is \"Not subject to VAT\" MUST contain exactly one VAT breakdown group (ibg-23) with the VAT category code (ibt-118) equal to \"Not subject to VAT\".",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-01": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-01]-An Invoice that contains an Invoice line (ibg-25), a Document level allowance (ibg-20) or a Document level charge (ibg-21) where the VAT category code (ibt-151, ibt-95 or ibt-102) is \"Standard rated\" MUST contain in the VAT breakdown (ibg-23) at least one VAT category code (ibt-118) equal with \"Standard rated\".",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-z-01": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-z-01]-An Invoice that contains an Invoice line (ibg-25), a Document level allowance (ibg-20) or a Document level charge (ibg-21) where the VAT category code (ibt-151, ibt-95 or ibt-102) is \"Zero rated\" MUST contain in the VAT breakdown (ibg-23) exactly one VAT category code (ibt-118) equal with \"Zero rated\".",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-ae-01-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-ae-01-ae]-An Invoice that contains an Invoice line (ibg-25), a Document level allowance (ibg-20) or a Document level charge (ibg-21) where the VAT category code (ibt-151, ibt-095 or ibt-102) is \"Reverse charge\" MUST contain in the VAT Breakdown (ibg-23) at least one VAT category code (ibt-118) equal with \"VAT reverse charge\".",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-sr-12": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-sr-12]-Seller tax identifier (ibt-031) MUST occur maximum once",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-007-ae": {
+  "flag": "fatal",
+  "message": "[ibr-007-ae]-When Invoice Transaction-type code (BTAE-02) has value 1XXXXXXX (Free trade zone), then providing value in Beneficiary ID (BTAE-01) MUST be provided.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-134-ae": {
+  "flag": "fatal",
+  "message": "[ibr-134-ae]-Seller VAT Identifier (IBT-031) MUST be there, except when the Invoice type code (IBT-003) is 'Out of scope of VAT' or 'Credit note related to goods or services'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-137-ae": {
+  "flag": "fatal",
+  "message": "[ibr-137-ae]-Principle ID (BTAE-14) is MUST, where Invoice transaction type code [BTAE-02] is XXXXX1XX (Disclosed Agent billing).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-138-ae": {
+  "flag": "fatal",
+  "message": "[ibr-138-ae]-Invoicing period [IBG-14] is MUST, where Invoice transaction type code [BTAE-02] is XXX1XXXX (Summary invoice).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-141-ae": {
+  "flag": "fatal",
+  "message": "[ibr-141-ae]-When, VAT point date [IBT-007] is present, it should be before the Invoice issue date [IBT-002].",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-055-ae": {
+  "flag": "fatal",
+  "message": "[ibr-055-ae]-Preceding invoice reference (IBG-03) is must when invoice type code (IBT-003) is 381 (Credit note) or 81 (Credit note related to goods or services) except when the [BTAE-03] Credit note reason code is 'VD'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-142-ae": {
+  "flag": "fatal",
+  "message": "[ibr-142-ae]-In Delivery Information (ibg-13), Deliver to address line 1 (IBT-075), Deliver to city (IBT-077), Deliver to country subdivision (IBT-079) MUST be there, in case the Invoice transaction type code [BTAE-02] is XXXXXX1X (E-commerce supplies).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-105-ae": {
+  "flag": "fatal",
+  "message": "[ibr-105-ae]-An Invoice that contains an Invoice line (IBG-25), where the VAT category code (IBT-151) is 'Standard rate additional VAT' shall contain exactly one VAT breakdown group (IBG-23) with the VAT category code (IBT-118) equal to 'Standard rate additional VAT'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-122-ae": {
+  "flag": "fatal",
+  "message": "[ibr-122-ae]-When Invoice type code (IBT-003) is 'Out of scope of VAT' or 'Credit note related to goods or services', then the Document level allowance VAT category code (IBT-095), Document level charge VAT category code (IBT-102), Invoiced item VAT category code (IBT-151) MUST be either 'Exempt from VAT' and/or 'Not subject to VAT' and/or 'Zero rated'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-124-ae": {
+  "flag": "fatal",
+  "message": "[ibr-124-ae]-VAT point date [IBT-007] MUST not be there when invoice type code (IBT-003) is 'credit note' or 'Credit note related to goods or services'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-127-ae": {
+  "flag": "fatal",
+  "message": "[ibr-127-ae]-Payment due date [IBT-009] MUST be present when the amount due for payment (IBT-115) greater than 0, except when invoice type code (IBT-003) is 'Credit note' or 'Credit note related to goods or services' or Invoice transaction-type code (BTAE-002) is X1XXXXXX (Deemed supply) .",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-116-ae": {
+  "flag": "fatal",
+  "message": "[ibr-116-ae]-When Invoice transaction-type code (BTAE-02) has value XX1XXXXX (Margin scheme), then the tax category code (IBT-151) should have 'Standard rate additional VAT '.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-151-ae": {
+  "flag": "fatal",
+  "message": "[ibr-151-ae]-When Invoice type code (IBT-003) is 'Commercial invoice' or 'Credit note', Invoiced item VAT category code (IBT-151) should not only contain 'Exempt from VAT' and/or 'Not subject to VAT'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-152-ae": {
+  "flag": "fatal",
+  "message": "[ibr-152-ae]-In Delivery Information (IBG-13), Deliver to address line 1 (IBT-075), deliver to city (IBT-077), deliver to country subdivision (IBT-079) MUST be there, in case the Invoice transaction type code [BTAE-02] is XXXXXXX1 (Exports) and the deliver to country code [IBT-080] should not be 'AE'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-153-ae": {
+  "flag": "fatal",
+  "message": "[ibr-153-ae]-When the Tax accounting currency (IBT-006) is set to AED and the invoice currency code (IBT-005) differs from AED, the source currency must be designated as the invoice currency code (IBT-005), and the target currency must be specified as the Tax accounting currency (IBT-006), provided that the currency exchange rate (BTAE-04) is available",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-157-ae": {
+  "flag": "fatal",
+  "message": "[ibr-157-ae]-Invoice Transaction-type code (BTAE-02) cannot be XXX1XXXX (Summary invoice) or X1XXXXXX (Deemed supply) or XX1XXXXX (Margin scheme) when the invoice type code (IBT-003) is 'Out of scope of VAT' or 'Credit note related to goods or services'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-158-ae": {
+  "flag": "fatal",
+  "message": "[ibr-158-ae]-Where the Invoice type code [IBT-003] is 'Credit note', Credit note reason code [BTAE-03] MUST be there .",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-159-ae": {
+  "flag": "fatal",
+  "message": "[ibr-159-ae]-Currency exchange rate [BTAE-04] is MUST when then Invoice currency code [IBT-005] is different from 'AED'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-160-ae": {
+  "flag": "fatal",
+  "message": "[ibr-160-ae]-When Frequency of billing (BTAE-06) value is 'Others', then value should be provided in Invoice note (IBT-022).",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-175-ae": {
+  "flag": "fatal",
+  "message": "[ibr-175-ae]-When Invoice currency code [IBT-005] is other than 'AED' and Tax accounting currency [IBT-006] is 'AED', then the value in Invoice total VAT amount in tax accounting currency [IBT-111] and Invoice (or CreditNote) total amount with VAT in AED [BTAE-20] MUST be present.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-176-ae": {
+  "flag": "fatal",
+  "message": "[ibr-176-ae]-When Invoice transaction type code [BTAE-02] is XXXXX1XX (Disclosed agent billing), then the value in field Seller VAT Identifier [IBT-031] and Principle ID [BTAE-14] should not be the same.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-183-ae": {
+  "flag": "fatal",
+  "message": "[ibr-183-ae]-The value in Buyer legal registration identifier type [BTAE-16] should either be 'Commercial/Trade license' or 'Emirates ID' or 'Passport' or 'Cabinet decision' when Buyer legal registration identifier (IBT-047) is provided and scheme identifier (IBT-049-1) is '0235' and buyer electronic address (IBT-049) is not '1XXXXXXXXX'.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-190-ae": {
+  "flag": "fatal",
+  "message": "[ibr-190-ae]- When the Invoiced item VAT category code (ibt-151), Document level allowance VAT category code (ibt-095), Document level charge VAT category code (ibt-102) is Standard rated then Invoiced item VAT rate (ibt-152), Document level allowance VAT rate (ibt-096), Document level charge VAT rate (ibt-103) must be 5.00.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-191-ae": {
+  "flag": "fatal",
+  "message": "[ibr-191-ae]- Payment means type code (ibt-081) must be provided except when the invoice type code (ibt-003) is 'Credit note' or 'Credit note related to goods or Invoice transaction-type code (BTAE-002) is X1XXXXXX (Deemed supply) .",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-154-ae": {
+  "flag": "fatal",
+  "message": "[ibr-154-ae]-Invoice Transaction-type code (BTAE-02) must be provided from the Invoice Transaction Type Code List. It should be a string consisting of no more than 8 characters, exclusively comprising of 0 and 1. The value in this field should be based on the sequence of transaction present in the invoice (as per list order), If applicable '1', and if not applicable '0' .",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-140-ae": {
+  "flag": "fatal",
+  "message": "[ibr-140-ae]-When VAT accounting currency (IBT-006) is present, it shall be AED.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-193-ae": {
+  "flag": "fatal",
+  "message": "[ibr-193-ae]- The unique identifier number (BTAE-07) must be provided.",
+  "context": "/ubl:Invoice | /cn:CreditNote",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-125-ae": {
+  "flag": "fatal",
+  "message": "[ibr-125-ae]-In Item Information(IBG-31), Item description (IBT-154) MUST be there.",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-166-ae": {
+  "flag": "fatal",
+  "message": "[ibr-166-ae]-In Item information (IBG-31) where Invoiced VAT category code (IBT-151) is 'Reverse charge', Type of goods or services (BTAE-09) MUST be there.",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-184-ae": {
+  "flag": "fatal",
+  "message": "[ibr-184-ae]-When the Item type [BTAE-13] is 'Goods' then Item classification identifier (ibt-158) must be provided. .",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-185-ae": {
+  "flag": "fatal",
+  "message": "[ibr-185-ae]-When the Item type [BTAE-13] is 'Services' then Service accounting code (BTAE-17) must be provided. .",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-186-ae": {
+  "flag": "fatal",
+  "message": "[ibr-186-ae]-When the Item type [BTAE-13] is 'Both' then Item classification identifier (ibt-158) and Service accounting code (BTAE-17) must be provided. .",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-187-ae": {
+  "flag": "fatal",
+  "message": "[ibr-187-ae]- The minimum number of digits to be provided should be 'X' in Item classification identifier (ibt-158) and Service accounting code (BTAE-17).",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-188-ae": {
+  "flag": "fatal",
+  "message": "[ibr-188-ae]- The scheme identifier (ibt-158-1) MUST be HS when Item classification identifier (ibt-158) is provided.",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-189-ae": {
+  "flag": "fatal",
+  "message": "[ibr-189-ae]- The scheme identifier (BTAE-17-1) MUST be SAC when Service accounting code (BTAE-17) is provided.",
+  "context": "cac:Item",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-045": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-045]-Each VAT breakdown (ibg-23) MUST have a VAT category taxable amount (ibt-116).",
+  "context": "cac:TaxSubtotal",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-046": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-046]-Each VAT breakdown (ibg-23) MUST have a VAT category tax amount (ibt-117).",
+  "context": "cac:TaxSubtotal",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-047": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-047]-Each VAT breakdown (ibg-23) MUST be defined through a VAT category code (ibt-118).",
+  "context": "cac:TaxSubtotal",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-048": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-048]-Each VAT breakdown (ibg-23) MUST have a VAT category rate (ibt-119), except if the Invoice is not subject to VAT.",
+  "context": "cac:TaxSubtotal",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-119-ae": {
+  "flag": "fatal",
+  "message": "[ibr-119-ae]-Each VAT breakdown (IBG-23) shall have a VAT category rate (IBT-119), except if the Invoice is not subject to VAT and Exempt from Tax.",
+  "context": "cac:TaxSubtotal",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-05": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-05]-In an Invoice line (ibg-25) where the Invoiced item VAT category code (ibt-151) is \"Standard rated\" the Invoiced item VAT rate (ibt-152) MUST be greater than zero.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-06": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-06]-In a Document level allowance (ibg-20) where the Document level allowance VAT category code (ibt-95) is \"Standard rated\" the Document level allowance VAT rate (ibt-96) MUST be greater than zero.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-07": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-07]-In a Document level charge (ibg-21) where the Document level charge VAT category code (ibt-102) is \"Standard rated\" the Document level charge VAT rate (ibt-103) MUST be greater than zero.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-08": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-08]-For each different value of VAT category rate (ibt-119) where the VAT category code (ibt-118) is \"Standard rated\", the VAT category taxable amount (ibt-116) in a VAT breakdown (ibg-23) MUST equal the sum of Invoice line net amounts (ibt-131) plus the sum of document level charge amounts (ibt-99) minus the sum of document level allowance amounts (ibt-92) where the VAT category code (ibt-151, ibt-102, ibt-95) is \"Standard rated\" and the VAT rate (ibt-152, ibt-103, ibt-96) equals the VAT category rate (ibt-119).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-09": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-09]-The VAT category tax amount (ibt-117) in a VAT breakdown (ibg-23) where VAT category code (ibt-118) is \"Standard rated\" MUST equal the VAT category taxable amount (ibt-116) multiplied by the VAT category rate (ibt-119).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-s-10": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-s-10]-A VAT breakdown (ibg-23) with VAT Category code (ibt-118) \"Standard rate\" MUST not have a VAT exemption reason code (ibt-121) or VAT exemption reason text (ibt-120).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-102-ae": {
+  "flag": "fatal",
+  "message": "[ibr-102-ae]-In a VAT Breakdown (IBG-23) where the VAT category code (IBT-118) is 'Standard rate additional VAT', for each different value of VAT category rate (IBT-119) the VAT category taxable amount (IBT-116) shall equal the sum of Invoice line net amounts (IBT-131) where the VAT category code (IBT-151) is 'Standard rate additional VAT' and the VAT rate (IBT-152) equals the VAT category rate (IBT-119).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'N'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-108-ae": {
+  "flag": "fatal",
+  "message": "[ibr-108-ae]-In a VAT breakdown (IBG-23), where VAT category code (IBT-118) is 'Standard rate additional VAT', VAT category tax amount (IBT-117) MUST be equal to 0 (zero).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'N'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-e-08": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-e-08]-In a VAT breakdown (ibg-23) where the VAT category code (ibt-118) is \"Exempt from VAT\" the VAT category taxable amount (ibt-116) MUST equal the sum of Invoice line net amounts (ibt-131) minus the sum of Document level allowance amounts (ibt-92) plus the sum of Document level charge amounts (ibt-99) where the VAT category codes (ibt-151, ibt-95, ibt-102) are \"Exempt from VAT\".",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-e-09": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-e-09]-The VAT category tax amount (ibt-117) In a VAT breakdown (ibg-23) where the VAT category code (ibt-118) equals \"Exempt from VAT\" MUST equal 0 (zero).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-121-ae": {
+  "flag": "fatal",
+  "message": "[ibr-121-ae]-In a VAT breakdown (IBG-23) where VAT category code (IBT-118) is 'Exempt from VAT', VAT category Rate (IBT-119) shall not be provided.",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-e-05": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-e-05]-In an Invoice line (ibg-25) where the Invoiced item VAT category code (ibt-151) is \"Exempt from VAT\", the Invoiced item VAT rate (ibt-152) MUST be 0 (zero).",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-163-ae": {
+  "flag": "fatal",
+  "message": "[ibr-163-ae]-In Line VAT information (IBG-30) where Invoiced item VAT category code (IBT-151) is 'Exempt', VAT Line amount [BTAE-08] shall not be there.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-e-06": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-e-06]-In a Document level allowance (ibg-20) where the Document level allowance VAT category code (ibt-95) is \"Exempt from VAT\", the Document level allowance VAT rate (ibt-96) MUST be 0 (zero).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-e-07": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-e-07]-In a Document level charge (ibg-21) where the Document level charge VAT category code (ibt-102) is \"Exempt from VAT\", the Document level charge VAT rate (ibt-103) MUST be 0 (zero).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-z-05": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-z-05]-In an Invoice line (ibg-25) where the Invoiced item VAT category code (ibt-151) is \"Zero rated\" the Invoiced item VAT rate (ibt-152) MUST be 0 (zero).",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-165-ae": {
+  "flag": "fatal",
+  "message": "[ibr-165-ae]-In Line VAT information (IBG-30) where Invoiced item VAT category code (IBT-151) is 'Zero Rated', VAT Line amount [BTAE-08] MUST be zero.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-z-06": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-z-06]-In a Document level allowance (ibg-20) where the Document level allowance VAT category code (ibt-95) is \"Zero rated\" the Document level allowance VAT rate (ibt-96) MUST be 0 (zero).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-z-07": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-z-07]-In a Document level charge (ibg-21) where the Document level charge VAT category code (ibt-102) is \"Zero rated\" the Document level charge VAT rate (ibt-103) MUST be 0 (zero).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-z-08": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-z-08]-In a VAT breakdown (ibg-23) where VAT category code (ibt-118) is \"Zero rated\" the VAT category taxable amount (ibt-116) MUST equal the sum of Invoice line net amount (ibt-131) minus the sum of Document level allowance amounts (ibt-92) plus the sum of Document level charge amounts (ibt-99) where the VAT category codes (ibt-151, ibt-95, ibt-102) are \"Zero rated\".",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-z-09": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-z-09]-The VAT category tax amount (ibt-117) in a VAT breakdown (ibg-23) where VAT category code (ibt-118) is \"Zero rated\" MUST equal 0 (zero).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-120-ae": {
+  "flag": "fatal",
+  "message": "[ibr-120-ae]-In a VAT breakdown (IBG-23) where VAT category code (IBT-118) is 'Zero Rated', VAT category Rate (IBT-119) shall equal to 0.",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-05": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-05]-An Invoice line (ibg-25) where the VAT category code (ibt-151) is \"Not subject to VAT\" MUST not contain an Invoiced item VAT rate (ibt-152).",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-06": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-06]-A Document level allowance (ibg-20) where VAT category code (ibt-95) is \"Not subject to VAT\" MUST not contain a Document level allowance VAT rate (ibt-96).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-07": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-07]-A Document level charge (ibg-21) where the VAT category code (ibt-102) is \"Not subject to VAT\" MUST not contain a Document level charge VAT rate (ibt-103).",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-08": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-08]-In a VAT breakdown (ibg-23) where the VAT category code (ibt-118) is \" Not subject to VAT\" the VAT category taxable amount (ibt-116) MUST equal the sum of Invoice line net amounts (ibt-131) minus the sum of Document level allowance amounts (ibt-92) plus the sum of Document level charge amounts (ibt-99) where the VAT category codes (ibt-151, ibt-95, ibt-102) are \"Not subject to VAT\".",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-09": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-09]-The VAT category tax amount (ibt-117) in a VAT breakdown (ibg-23) where the VAT category code (ibt-118) is \"Not subject to VAT\" MUST be 0 (zero).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-o-11-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-o-11-ae]-In a VAT breakdown (IBG-23) where VAT category code (IBT-118) is 'Not Subject to VAT', VAT category tax Rate (IBT-119) shall not be provided.",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-ae-05-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-ae-05-ae]-In an Invoice line (ibg-25) where the Invoiced item VAT category code (ibt-151) is \"Reverse charge\" the Invoiced item VAT rate (ibt-152) MUST be there.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-103-ae": {
+  "flag": "fatal",
+  "message": "[ibr-103-ae]-When the Invoiced item VAT category code (ibt-151) is VAT reverse charge, then Buyer VAT identifier (ibt-048) MUST be provided.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-162-ae": {
+  "flag": "fatal",
+  "message": "[ibr-162-ae]-In Line VAT information (IBG-30) where Invoiced item VAT category code (IBT-151) is 'Reverse charge', VAT Line amount [BTAE-08] MUST be 'zero'.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-174-ae": {
+  "flag": "fatal",
+  "message": "[ibr-174-ae]-In Item Information (IBG-31) where Invoiced VAT category code (IBT-151) is 'Reverse charge', the corresponding Item Standard Identifier (IBT-157) MUST be there and the Scheme Identifier (IBT-157-1) should have the code 0160.",
+  "context": "cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-ae-06": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-ae-06]-In a Document level allowance (ibg-20) where the Document level allowance VAT category code (ibt-95) is \"Reverse charge\" the Document level allowance VAT rate (ibt-96) MUST be greater than zero.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-ae-07": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-ae-07]-In a Document level charge (ibg-21) where the Document level charge VAT category code (ibt-102) is \"Reverse charge\" the Document level charge VAT rate (ibt-103) MUST be greater than zero.",
+  "context": "cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-ae-08-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-ae-08-ae]-In a VAT Breakdown (IBG-23) where the VAT category code (IBT-118) is 'Reverse Charge', for each different value of VAT category rate (IBT-119) the VAT category taxable amount (IBT-116) shall equal the sum of Invoice line net amounts (IBT-131) plus the sum of Document level charge amounts (IBT-99) minus the sum of Document level allowance amounts (IBT-92) where the VAT category code (IBT-151, IBT-102, IBT-095) is 'Reverse Charge' and the VAT rate (IBT-152, IBT-103, IBT-096) equals the VAT category rate (IBT-119).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "aligned-ibrp-ae-09-ae": {
+  "flag": "fatal",
+  "message": "[aligned-ibrp-ae-09-ae]-In a VAT breakdown (IBG-23) where the VAT category code (IBT-118) is 'Reverse charge', VAT category tax amount (IBT-117) MUST be equal to 0 (zero).",
+  "context": "/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-132-ae": {
+  "flag": "fatal",
+  "message": "[ibr-132-ae]-VAT identifier [IBT-031, IBT-048, IBT-063, BTAE-14] should be TRN [VAT registration number] and must be 15 alphanumeric digits, starting with 1, ending with 03 .",
+  "context": "cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'AE']/cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID)) = 'VAT']/cbc:CompanyID",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-148-ae": {
+  "flag": "fatal",
+  "message": "[ibr-148-ae]-The Seller VAT registration identifier (IBT-032) should be TIN (tax identification number) and must be 10 numeric digits and should be of the format 1XXXXXXXXXX.",
+  "context": "cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID)) != 'VAT']/cbc:CompanyID",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-133-ae": {
+  "flag": "fatal",
+  "message": "[ibr-133-ae]-VAT scheme code, if provided in (IBT-095-01) or (IBT-031-1) or (IBT-048-1) or (IBT-063-1) or (IBT-102-1) or (IBT-118-1) shall be 'VAT' except when Seller tax registration identifier (IBT-032) is provided.",
+  "context": "cac:TaxScheme/cbc:ID",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-001-ae": {
+  "flag": "fatal",
+  "message": "[ibr-001-ae]-Credit note reason code [BTAE-03] value should be from the Reasons for credit note code list.",
+  "context": "cac:DiscrepancyResponse/cbc:ResponseCode",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-011-ae": {
+  "flag": "fatal",
+  "message": "[ibr-011-ae]-Passport issuing country code (BTAE-19) MUST be coded using ISO code list 3166-1.",
+  "context": "cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeAgencyID='PAS']/@schemeAgencyName",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-013-ae": {
+  "flag": "fatal",
+  "message": "[ibr-013-ae]-Passport issuing country code (BTAE-18) MUST be coded using ISO code list 3166-1.",
+  "context": "cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeAgencyID='PAS']/@schemeAgencyName",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-005-ae": {
+  "flag": "fatal",
+  "message": "[ibr-005-ae]-Frequency of billing (BTAE-06) should be taken from the frequency of billing code list.",
+  "context": "cac:InvoicePeriod/cbc:DescriptionCode",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-139-ae": {
+  "flag": "fatal",
+  "message": "[ibr-139-ae]-Document level allowance tax category code [IBT-095], Document level charge tax category code [IBT-102], Tax category code [IBT-118], Invoiced item tax category code [IBT-151] should be selected from the aligned tax category code.",
+  "context": "cac:TaxCategory/cbc:ID | cac:ClassifiedTaxCategory/cbc:ID",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ },
+ "ibr-006-ae": {
+  "flag": "fatal",
+  "message": "[ibr-006-ae]-In Item Information (IBG-31) where Invoiced tax category code (ibt-151) is 'VAT Reverse charge', Type of goods or services (BTAE-09) MUST be selected from the Goods or services subject to RCM Code list.",
+  "context": "cbc:NatureCode",
+  "layer": "ae",
+  "docs": [
+   "invoice",
+   "creditnote"
+  ]
+ }
+}

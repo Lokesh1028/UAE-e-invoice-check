@@ -1,0 +1,578 @@
+{
+ "ibr-002": {
+  "title": "Invoice number is missing",
+  "field": "Invoice number",
+  "plain": "Every invoice needs a unique invoice number.",
+  "fix": "Add the invoice number exactly as printed on the invoice."
+ },
+ "ibr-003": {
+  "title": "Invoice date is missing",
+  "field": "Invoice date",
+  "plain": "The issue date of the invoice is mandatory.",
+  "fix": "Add the invoice date in YYYY-MM-DD format."
+ },
+ "ibr-073": {
+  "title": "Date is not in YYYY-MM-DD format",
+  "field": "Dates",
+  "plain": "All dates in an e-invoice must be written as YYYY-MM-DD, for example 2027-03-31.",
+  "fix": "Change date columns to ISO format (YYYY-MM-DD). Excel dates must be exported as text in that format."
+ },
+ "ibr-005": {
+  "title": "Invoice currency is missing",
+  "field": "Currency",
+  "plain": "The invoice must state its currency (normally AED).",
+  "fix": "Add a currency column or set a default currency of AED."
+ },
+ "ibr-006": {
+  "title": "Seller name is missing",
+  "field": "Seller legal name",
+  "plain": "The invoice must carry the seller's legal (registered) name.",
+  "fix": "Add your company's name as it appears on your trade licence."
+ },
+ "ibr-007": {
+  "title": "Buyer name is missing",
+  "field": "Customer name",
+  "plain": "The invoice must carry the customer's legal name.",
+  "fix": "Add the customer's registered company name."
+ },
+ "ibr-008": {
+  "title": "Seller address is missing",
+  "field": "Seller address",
+  "plain": "The seller must have a structured postal address: street, city, emirate and country.",
+  "fix": "Add seller address line, city, emirate code and country (AE)."
+ },
+ "ibr-010": {
+  "title": "Buyer address is missing",
+  "field": "Customer address",
+  "plain": "The customer must have a structured postal address: street, city, emirate and country.",
+  "fix": "Collect and store a structured address for every customer: street, city, emirate and country."
+ },
+ "ibr-009": {
+  "title": "Seller country code is missing",
+  "field": "Seller country",
+  "plain": "The seller address must contain a 2-letter country code (AE for the UAE).",
+  "fix": "Add country code AE."
+ },
+ "ibr-011": {
+  "title": "Buyer country code is missing",
+  "field": "Customer country",
+  "plain": "The customer address must contain a 2-letter country code.",
+  "fix": "Add the customer's country as a 2-letter ISO code (AE, IN, GB...)."
+ },
+ "ibr-016": {
+  "title": "Invoice has no line items",
+  "field": "Line items",
+  "plain": "An e-invoice must have at least one line item. A single total is not enough.",
+  "fix": "Include the line items (description, quantity, unit price, VAT) not just the total."
+ },
+ "ibr-021": {
+  "title": "Line number missing",
+  "field": "Line items",
+  "plain": "Each line item needs a sequential line number.",
+  "fix": "Number your line items 1, 2, 3..."
+ },
+ "ibr-022": {
+  "title": "Quantity missing on a line",
+  "field": "Quantity",
+  "plain": "Every line item must state a quantity.",
+  "fix": "Add a quantity for each line (use 1 for services billed as a lump sum)."
+ },
+ "ibr-023": {
+  "title": "Unit of measure missing on a line",
+  "field": "Unit",
+  "plain": "Every quantity needs a unit of measure code from the UN/ECE list, for example H87 (piece), KGM (kilogram), HUR (hour), MTR (metre), LTR (litre).",
+  "fix": "Add a unit column or a default of H87 (piece) / EA (each)."
+ },
+ "ibr-024": {
+  "title": "Line net amount missing",
+  "field": "Line amount",
+  "plain": "Each line must state its net amount (quantity × unit price, before VAT).",
+  "fix": "Add a line amount column, excluding VAT."
+ },
+ "ibr-025": {
+  "title": "Item name missing on a line",
+  "field": "Item / description",
+  "plain": "Every line item needs an item name.",
+  "fix": "Add a short item name for each line."
+ },
+ "ibr-026": {
+  "title": "Unit price missing on a line",
+  "field": "Unit price",
+  "plain": "Each line must state the unit price (net of VAT).",
+  "fix": "Add a unit price column."
+ },
+ "ibr-027": {
+  "title": "Unit price is negative",
+  "field": "Unit price",
+  "plain": "Unit prices cannot be negative. Discounts are expressed separately, and returns go on a credit note.",
+  "fix": "Use positive prices; model a discount as an allowance or issue a credit note."
+ },
+ "ibr-062": {
+  "title": "Seller Peppol address has no scheme",
+  "field": "Seller TIN",
+  "plain": "The seller's electronic address must carry scheme 0235 (UAE TIN).",
+  "fix": "Set the seller endpoint scheme to 0235 and the value to the 10-digit TIN."
+ },
+ "ibr-063": {
+  "title": "Buyer Peppol address has no scheme",
+  "field": "Customer TIN",
+  "plain": "The customer's electronic address must carry scheme 0235 (UAE TIN).",
+  "fix": "Set the buyer endpoint scheme to 0235 and the value to the customer's 10-digit TIN."
+ },
+ "ibr-080": {
+  "title": "Customer's electronic address (TIN) is missing",
+  "field": "Customer TIN",
+  "plain": "The e-invoice is delivered to the customer by their Peppol address, which in the UAE is their 10-digit Tax Identification Number (TIN) with scheme 0235. Without it the invoice cannot be routed.",
+  "fix": "Collect the TIN (not the TRN) of every business customer and store it in your customer master."
+ },
+ "ibr-081": {
+  "title": "Seller's electronic address (TIN) is missing",
+  "field": "Seller TIN",
+  "plain": "Your own Peppol address is your 10-digit TIN with scheme 0235. It identifies you on the network.",
+  "fix": "Add your TIN from the FTA portal. The TIN is different from your 15-digit TRN."
+ },
+ "ibr-079": {
+  "title": "Empty field in the document",
+  "field": "Any",
+  "plain": "The invoice contains an element with no value. Empty fields are not allowed; leave the field out instead.",
+  "fix": "Remove blank cells or columns that produce empty values."
+ },
+ "ibr-cl-23": {
+  "title": "Unit of measure code is not valid",
+  "field": "Unit",
+  "plain": "Units must be UN/ECE Recommendation 20/21 codes: H87 or EA (piece), KGM (kg), GRM (g), LTR (litre), MTR (metre), MTK (m²), HUR (hour), DAY (day), MON (month), SET (set), BX (box).",
+  "fix": "Map your unit names (pcs, nos, kg...) to the codes listed."
+ },
+ "ibr-cl-14": {
+  "title": "Country code is not valid",
+  "field": "Country",
+  "plain": "Country must be a 2-letter ISO 3166-1 code, for example AE, IN, SA, GB.",
+  "fix": "Replace country names with 2-letter codes."
+ },
+ "ibr-cl-04": {
+  "title": "Currency code is not valid",
+  "field": "Currency",
+  "plain": "Currency must be a 3-letter ISO 4217 code such as AED, USD, EUR.",
+  "fix": "Use AED (not Dhs or Dirhams)."
+ },
+ "ibr-cl-16": {
+  "title": "Payment method code is not valid",
+  "field": "Payment method",
+  "plain": "Payment method must be a UNCL4461 code: 10 cash, 30 bank transfer, 48 card, 54 credit card, 55 debit card, 20 cheque, 68 online payment.",
+  "fix": "Map your payment method text to one of the codes."
+ },
+ "ibr-co-10": {
+  "title": "Sum of line amounts does not match",
+  "field": "Totals",
+  "plain": "The 'sum of line amounts' total must equal the sum of all line net amounts.",
+  "fix": "Recalculate: add every line's net amount; make sure no line was left out of the export."
+ },
+ "ibr-co-13": {
+  "title": "Total before VAT does not add up",
+  "field": "Totals",
+  "plain": "Total before VAT must equal sum of lines minus document discounts plus document charges.",
+  "fix": "Check rounding and that discounts/charges are included once."
+ },
+ "ibr-co-14": {
+  "title": "Total VAT does not match the VAT breakdown",
+  "field": "VAT total",
+  "plain": "The VAT total you supplied for the document does not equal the sum of the VAT amounts of its lines / VAT breakdown. Usually a rounding method difference or a line missing from the export.",
+  "fix": "Recalculate VAT per category and sum."
+ },
+ "ibr-co-15": {
+  "title": "Total with VAT does not add up",
+  "field": "Totals",
+  "plain": "Total with VAT must equal total before VAT plus total VAT.",
+  "fix": "Check rounding to 2 decimals at the total level."
+ },
+ "ibr-co-16": {
+  "title": "Amount due does not add up",
+  "field": "Amount due",
+  "plain": "Amount due = total with VAT − paid amount + rounding amount.",
+  "fix": "Check prepaid amounts and rounding."
+ },
+ "ibr-091": {
+  "title": "Amount due has more than 2 decimals",
+  "field": "Amount due",
+  "plain": "Money amounts at document level must be rounded to 2 decimals.",
+  "fix": "Round totals to 2 decimals (fils)."
+ },
+ "ibr-123": {
+  "title": "Total before VAT has more than 2 decimals",
+  "field": "Totals",
+  "plain": "Document totals must be rounded to 2 decimals.",
+  "fix": "Round to 2 decimals."
+ },
+ "ibr-124": {
+  "title": "Total VAT has more than 2 decimals",
+  "field": "VAT total",
+  "plain": "Document totals must be rounded to 2 decimals.",
+  "fix": "Round to 2 decimals."
+ },
+ "ibr-125": {
+  "title": "Total with VAT has more than 2 decimals",
+  "field": "Totals",
+  "plain": "Document totals must be rounded to 2 decimals.",
+  "fix": "Round to 2 decimals."
+ },
+ "ibr-sr-58": {
+  "title": "VAT category missing on a line",
+  "field": "Line VAT category",
+  "plain": "Every line must say which VAT treatment applies: S (5% standard), Z (zero-rated), E (exempt), AE (reverse charge), O (out of scope).",
+  "fix": "Add a VAT category column, or derive it from the VAT rate (5% → S, 0% → Z unless exempt)."
+ },
+ "ibr-145-ae": {
+  "title": "VAT category missing on a line",
+  "field": "Line VAT category",
+  "plain": "Every line must say which VAT treatment applies: S (5% standard), Z (zero-rated), E (exempt), AE (reverse charge), O (out of scope).",
+  "fix": "Add a VAT category column, or derive it from the VAT rate."
+ },
+ "aligned-ibrp-001-ae": {
+  "title": "Wrong specification identifier",
+  "field": "Technical header",
+  "plain": "The CustomizationID must be urn:peppol:pint:billing-1@ae-1 for a UAE invoice.",
+  "fix": "Set CustomizationID to urn:peppol:pint:billing-1@ae-1."
+ },
+ "aligned-ibrp-002-ae": {
+  "title": "Wrong business process identifier",
+  "field": "Technical header",
+  "plain": "The ProfileID must be urn:peppol:bis:billing.",
+  "fix": "Set ProfileID to urn:peppol:bis:billing."
+ },
+ "aligned-ibrp-s-05": {
+  "title": "Standard-rated line with a VAT rate of 0",
+  "field": "Line VAT rate",
+  "plain": "A line marked S (standard rated) must have a VAT rate greater than 0 (5% in the UAE).",
+  "fix": "Either set the rate to 5, or change the category to Z (zero-rated) or E (exempt)."
+ },
+ "aligned-ibrp-s-08": {
+  "title": "VAT breakdown missing for a standard rate",
+  "field": "VAT breakdown",
+  "plain": "For every VAT rate used on the lines there must be one VAT breakdown entry with the matching taxable amount.",
+  "fix": "Build the VAT breakdown by grouping lines per VAT category and rate."
+ },
+ "aligned-ibrp-s-09": {
+  "title": "VAT amount in the breakdown is wrong",
+  "field": "VAT breakdown",
+  "plain": "VAT amount must equal taxable amount × rate ÷ 100, rounded to 2 decimals.",
+  "fix": "Recalculate the VAT amount per category."
+ },
+ "aligned-ibrp-z-05": {
+  "title": "Zero-rated line has a non-zero VAT rate",
+  "field": "Line VAT rate",
+  "plain": "A line marked Z (zero-rated) must have a VAT rate of 0.",
+  "fix": "Set the rate to 0 or change the category."
+ },
+ "aligned-ibrp-e-05": {
+  "title": "Exempt line must not carry a VAT rate",
+  "field": "Line VAT rate",
+  "plain": "A line marked E (exempt) must not have a VAT rate at all (not even 0).",
+  "fix": "Remove the VAT rate on exempt lines."
+ },
+ "aligned-ibrp-ae-05-ae": {
+  "title": "Reverse-charge line has a non-zero VAT amount",
+  "field": "Line VAT",
+  "plain": "For reverse charge (AE) the buyer accounts for VAT, so the seller's VAT amount on the line must be zero.",
+  "fix": "Set line VAT amount to 0 for reverse-charge lines."
+ },
+ "ibr-128-ae": {
+  "title": "Emirate code is not valid",
+  "field": "Emirate",
+  "plain": "For a UAE address the emirate must be one of: AUH (Abu Dhabi), DXB (Dubai), SHJ (Sharjah), AJM (Ajman), UAQ (Umm Al Quwain), RAK (Ras Al Khaimah), FUJ (Fujairah).",
+  "fix": "Replace emirate names with the 3-letter codes."
+ },
+ "ibr-132-ae": {
+  "title": "TRN format is wrong",
+  "field": "TRN",
+  "plain": "A UAE Tax Registration Number (TRN) is 15 characters, starts with 1 and ends with 03, for example 100123456700003.",
+  "fix": "Check the TRN on the FTA certificate; remove spaces and dashes."
+ },
+ "ibr-148-ae": {
+  "title": "TIN format is wrong",
+  "field": "TIN",
+  "plain": "A UAE Tax Identification Number (TIN) is 10 digits and starts with 1. It is different from the 15-digit TRN.",
+  "fix": "Use the TIN from the FTA portal (EmaraTax)."
+ },
+ "ibr-134-ae": {
+  "title": "Seller TRN is missing",
+  "field": "Seller TRN",
+  "plain": "A tax invoice must show the seller's 15-digit TRN. Only an out-of-scope (type 480) invoice from a non-VAT-registered seller may omit it.",
+  "fix": "Add your TRN. If you are not VAT registered, issue a commercial invoice (type 480) with your TIN instead."
+ },
+ "ibr-177-ae": {
+  "title": "Seller has neither TRN nor TIN",
+  "field": "Seller TRN / TIN",
+  "plain": "The seller must be identified by a TRN (VAT registered) or a TIN (not VAT registered).",
+  "fix": "Add the TRN, or the TIN if not registered for VAT."
+ },
+ "ibr-143-ae": {
+  "title": "Seller address is incomplete",
+  "field": "Seller address",
+  "plain": "The seller address must have address line 1, city and emirate.",
+  "fix": "Fill street/area, city and emirate code for your own company."
+ },
+ "ibr-144-ae": {
+  "title": "Customer address is incomplete",
+  "field": "Customer address",
+  "plain": "The customer address must have address line 1, city and emirate (for UAE customers).",
+  "fix": "Collect street/area, city and emirate for every customer. PO box alone is not enough."
+ },
+ "ibr-149-ae": {
+  "title": "Customer TRN or registration number is missing",
+  "field": "Customer TRN",
+  "plain": "When the customer is a UAE business, their TRN must be on the invoice (unless the customer is unregistered and identified by TIN only).",
+  "fix": "Store each customer's TRN."
+ },
+ "ibr-135-ae": {
+  "title": "Customer identifier missing",
+  "field": "Customer TRN / ID",
+  "plain": "A domestic business invoice must identify the customer by TRN or another buyer identifier.",
+  "fix": "Add the customer's TRN."
+ },
+ "ibr-150-ae": {
+  "title": "Seller licence number is missing",
+  "field": "Trade licence number",
+  "plain": "The seller's legal registration number (trade licence number) is mandatory.",
+  "fix": "Add your trade licence number and the issuing authority (e.g. DED, DMCC)."
+ },
+ "ibr-172-ae": {
+  "title": "Seller licence authority is missing",
+  "field": "Trade licence authority",
+  "plain": "When the seller is identified by a trade licence, the issuing authority name must be given.",
+  "fix": "Add the licensing authority, for example Dubai Department of Economy and Tourism."
+ },
+ "ibr-101-ae": {
+  "title": "Customer licence authority is missing",
+  "field": "Customer licence authority",
+  "plain": "When the customer is identified by a trade licence, the issuing authority name must be given.",
+  "fix": "Record the customer's licence authority."
+ },
+ "ibr-173-ae": {
+  "title": "Seller registration ID type is not valid",
+  "field": "Seller registration ID type",
+  "plain": "The seller registration identifier must be typed as TL (trade licence), EID (Emirates ID), PAS (passport) or CD (cabinet decision).",
+  "fix": "Use TL for companies."
+ },
+ "ibr-183-ae": {
+  "title": "Customer registration ID type is not valid",
+  "field": "Customer registration ID type",
+  "plain": "The customer registration identifier must be typed as CL/TL (trade licence), EID, PAS or CD.",
+  "fix": "Use TL for companies."
+ },
+ "ibr-125-ae": {
+  "title": "Item description missing",
+  "field": "Item description",
+  "plain": "Every line needs an item description in addition to the item name.",
+  "fix": "Add a description column (can repeat the item name)."
+ },
+ "ibr-126-ae": {
+  "title": "Price base quantity or gross price missing",
+  "field": "Unit price",
+  "plain": "Each line must state the gross unit price and the base quantity the price refers to (usually 1).",
+  "fix": "Add gross price (before line discount) and base quantity 1."
+ },
+ "ibr-127-ae": {
+  "title": "Due date is missing",
+  "field": "Due date",
+  "plain": "When an amount is payable, the invoice must carry a payment due date (credit notes and deemed supplies are exempt from this).",
+  "fix": "Add a due date column, or derive it from the payment terms (e.g. invoice date + 30 days)."
+ },
+ "ibr-191-ae": {
+  "title": "Payment method is missing",
+  "field": "Payment method",
+  "plain": "An invoice must state how it will be paid, as a UNCL4461 code: 10 cash, 20 cheque, 30 bank transfer, 48 card, 54 credit card, 55 debit card, 68 online payment. Credit notes and deemed supplies are exempt.",
+  "fix": "Add a payment method; bank transfer (30) also needs the IBAN."
+ },
+ "ibr-192-ae": {
+  "title": "Bank account missing for bank transfer",
+  "field": "IBAN",
+  "plain": "If the payment method is bank transfer, the seller's account identifier (IBAN) must be given.",
+  "fix": "Add your IBAN."
+ },
+ "ibr-193-ae": {
+  "title": "Invoice UUID missing",
+  "field": "Technical header",
+  "plain": "Each e-invoice carries a globally unique identifier (UUID) generated by your software.",
+  "fix": "Generate a UUID per invoice; your invoicing software or our tool does this automatically."
+ },
+ "ibr-194-ae": {
+  "title": "Line amount payable missing",
+  "field": "Line totals",
+  "plain": "Each line must also state the amount payable for that line including VAT (UAE-specific field).",
+  "fix": "Add line total including VAT."
+ },
+ "ibr-104-ae": {
+  "title": "Line VAT amount or line total missing",
+  "field": "Line totals",
+  "plain": "Each line needs its VAT amount and its total including VAT (UAE-specific fields).",
+  "fix": "Add a VAT amount and a gross total per line."
+ },
+ "ibr-154-ae": {
+  "title": "Transaction type code missing or invalid",
+  "field": "Transaction type",
+  "plain": "The 8-character transaction type code flags special cases (free zone, deemed supply, margin scheme, summary, continuous, agent, e-commerce, export). Use 00000000 for a normal invoice.",
+  "fix": "Set 00000000 unless one of the special cases applies."
+ },
+ "ibr-158-ae": {
+  "title": "Credit note reason missing",
+  "field": "Credit note reason",
+  "plain": "A credit note must carry a reason code (cancelled supply, change in consideration, returned goods, error, etc.).",
+  "fix": "Pick the reason from the UAE credit reason list."
+ },
+ "ibr-055-ae": {
+  "title": "Credit note does not reference the original invoice",
+  "field": "Original invoice number",
+  "plain": "A credit note must reference the invoice it corrects.",
+  "fix": "Add the original invoice number and date."
+ },
+ "ibr-159-ae": {
+  "title": "Exchange rate missing for a non-AED invoice",
+  "field": "Exchange rate",
+  "plain": "If the invoice currency is not AED, the exchange rate to AED is mandatory (up to 6 decimals).",
+  "fix": "Add an exchange-rate column for foreign-currency invoices."
+ },
+ "ibr-184-ae": {
+  "title": "HS code missing for goods",
+  "field": "HS code",
+  "plain": "When the item is goods, the Harmonised System (HS) code must be given.",
+  "fix": "Add the HS code for each goods item (your customs broker or supplier has it)."
+ },
+ "ibr-185-ae": {
+  "title": "Service accounting code missing",
+  "field": "SAC",
+  "plain": "When the item is a service, the service accounting code (SAC) must be given.",
+  "fix": "Add the SAC for each service item."
+ },
+ "ibr-167-ae": {
+  "title": "Exempt line needs an exemption reason code",
+  "field": "VAT exemption reason",
+  "plain": "Exempt lines must state why: DL8.46.1 financial services, DL8.46.2 residential property, DL8.46.3 bare land, DL8.46.4 local passenger transport.",
+  "fix": "Add the exemption reason code."
+ },
+ "ibr-166-ae": {
+  "title": "Type of goods missing on reverse-charge line",
+  "field": "Type of goods",
+  "plain": "Reverse-charge lines must state the goods type (electronic devices, gold & diamonds, oil, gas, hydrocarbons).",
+  "fix": "Add the goods type code."
+ },
+ "ibr-103-ae": {
+  "title": "Customer TRN missing on reverse-charge invoice",
+  "field": "Customer TRN",
+  "plain": "Reverse charge only works between VAT-registered parties, so the customer's TRN is mandatory.",
+  "fix": "Add the customer's TRN."
+ },
+ "ibr-196-ae": {
+  "title": "Incoterms missing",
+  "field": "Incoterms",
+  "plain": "When delivery terms are given, the Incoterms code (EXW, FOB, CIF...) is mandatory.",
+  "fix": "Add the Incoterms code."
+ },
+ "xsd": {
+  "title": "XML structure error",
+  "field": "Technical",
+  "plain": "The XML does not follow the UBL 2.1 schema (wrong element order, unknown element or wrong data type).",
+  "fix": "Regenerate the XML from a compliant generator; element order matters in UBL."
+ },
+ "xml-syntax": {
+  "title": "File is not valid XML",
+  "field": "Technical",
+  "plain": "The file could not be parsed as XML.",
+  "fix": "Upload the .xml file produced by your invoicing software, not a PDF or a renamed file."
+ },
+ "xml-root": {
+  "title": "Not a UBL invoice or credit note",
+  "field": "Technical",
+  "plain": "The root element must be a UBL 2.1 Invoice or CreditNote.",
+  "fix": "Export the invoice in UBL 2.1 / PINT AE format."
+ },
+ "ibr-152-missing": {
+  "title": "VAT rate missing on a line",
+  "field": "Line VAT rate",
+  "plain": "Each standard, zero-rated or reverse-charge line must state its VAT rate (5 or 0).",
+  "fix": "Add a VAT % column, or a VAT category from which the rate follows (S = 5, Z = 0)."
+ },
+ "engine-shared": {
+  "title": "Rules could not be fully evaluated",
+  "field": "Technical",
+  "plain": "The official rule set stopped on this document, usually because an amount or rate needed for a calculation is missing. Fix the other errors first and re-run.",
+  "fix": "Supply VAT rates and amounts on every line."
+ },
+ "engine-ae": {
+  "title": "Rules could not be fully evaluated",
+  "field": "Technical",
+  "plain": "The official rule set stopped on this document, usually because an amount or rate needed for a calculation is missing. Fix the other errors first and re-run.",
+  "fix": "Supply VAT rates and amounts on every line."
+ },
+ "ibr-cl-13": {
+  "title": "Item classification list is not valid",
+  "field": "HS code",
+  "plain": "Goods are classified with an HS code (list 'HS'); services use a service accounting code (SAC) in a separate field. Other list identifiers are rejected.",
+  "fix": "Put HS codes under listID HS and SAC codes in the SAC field."
+ },
+ "ibr-151-ae": {
+  "title": "Invoice contains only exempt / out-of-scope lines",
+  "field": "Invoice type / VAT category",
+  "plain": "A standard invoice (type 380) must contain at least one line that is taxable, zero-rated or reverse charge. If everything you supplied is out of scope or exempt, check the VAT treatment of the lines, or issue the document as type 480 (out of scope) where applicable.",
+  "fix": "Review the VAT category of the lines; use document type 480 for out-of-scope supplies."
+ },
+ "ibr-175-ae": {
+  "title": "AED amounts missing on a foreign-currency invoice",
+  "field": "Exchange rate / AED totals",
+  "plain": "Invoices in a currency other than AED must also state the VAT amount and the total including VAT in AED, using the exchange rate applied.",
+  "fix": "Provide the exchange rate to AED for every non-AED invoice; the AED amounts are then derived."
+ },
+ "ibr-co-26": {
+  "title": "Seller cannot be identified automatically",
+  "field": "Seller TIN / licence number",
+  "plain": "The buyer's system identifies you by your seller identifier, trade licence number or TRN. At least one of these must be present.",
+  "fix": "Add your TIN (Peppol address), trade licence number and TRN to your company profile."
+ },
+ "aligned-ibrp-004": {
+  "title": "Net price does not equal list price minus discount",
+  "field": "Unit price / list price",
+  "plain": "When a list (gross) price is given, net price must equal list price minus the price discount exactly.",
+  "fix": "Check per-unit rounding; if prices are quoted per pack, divide both list and net price by the same pack quantity."
+ },
+ "ibr-190-ae": {
+  "title": "VAT category used on a line has no VAT breakdown entry",
+  "field": "VAT breakdown",
+  "plain": "Every VAT category that appears on a line, discount or charge must also appear in the invoice's VAT breakdown. This usually follows from a line whose VAT category could not be determined.",
+  "fix": "Give every line a VAT category and rate; the breakdown is then derived."
+ },
+ "ibr-168-ae": {
+  "title": "Exempt document discount needs an exemption reason",
+  "field": "Document discount",
+  "plain": "A document-level discount in the exempt category must carry a VAT exemption reason code.",
+  "fix": "Record the exemption reason (e.g. DL8.46.1 financial services) on exempt invoices."
+ },
+ "aligned-ibrp-e-06": {
+  "title": "Exempt document discount needs an exemption reason",
+  "field": "Document discount",
+  "plain": "A document-level discount in the exempt category must carry a VAT exemption reason code.",
+  "fix": "Record the exemption reason (e.g. DL8.46.1 financial services) on exempt invoices."
+ },
+ "ibr-169-ae": {
+  "title": "Exempt document charge needs an exemption reason",
+  "field": "Document charge",
+  "plain": "A document-level charge (e.g. freight) in the exempt category must carry a VAT exemption reason code.",
+  "fix": "Record the exemption reason on exempt invoices."
+ },
+ "aligned-ibrp-e-07": {
+  "title": "Exempt document charge needs an exemption reason",
+  "field": "Document charge",
+  "plain": "A document-level charge (e.g. freight) in the exempt category must carry a VAT exemption reason code.",
+  "fix": "Record the exemption reason on exempt invoices."
+ },
+ "aligned-ibrp-048": {
+  "title": "VAT breakdown entry has no rate",
+  "field": "VAT breakdown",
+  "plain": "Each VAT breakdown entry needs a rate unless the category is out of scope.",
+  "fix": "Supply the VAT rate on the lines."
+ },
+ "ibr-119-ae": {
+  "title": "VAT breakdown entry has no rate",
+  "field": "VAT breakdown",
+  "plain": "Each VAT breakdown entry needs a rate unless the category is out of scope.",
+  "fix": "Supply the VAT rate on the lines."
+ }
+}

@@ -1,0 +1,1 @@
+PINT AE Billing 1.0.2 hotfix (2026-01-28) from https://docs.peppol.eu/poac/ae/v1.0.2/pint-ae/resources.zip ; UBL 2.1 XSD from OASIS os-UBL-2.1
