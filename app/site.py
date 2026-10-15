@@ -27,6 +27,9 @@ ASSET_V = os.environ.get("APP_VERSION", "0.2.0")
 BUILD_DATE = os.environ.get("BUILD_DATE", date.today().isoformat())
 INDEXNOW_KEY = os.environ.get("INDEXNOW_KEY", "7c1e9a4f2b8d4e6fa3c5b7d9e1f20468")
 GOOGLE_VERIFY = os.environ.get("GOOGLE_SITE_VERIFICATION", "")
+# Search Console "HTML file" method: comma-separated file names such as google7b55f293e02f9a93.html
+GOOGLE_VERIFY_FILES = [f.strip() for f in os.environ.get("GOOGLE_VERIFICATION_FILES", "").split(",")
+                       if re.fullmatch(r"google[0-9a-f]{16}\.html", f.strip())]
 BING_VERIFY = os.environ.get("BING_SITE_VERIFICATION", "")
 STATIC = Path(__file__).resolve().parent / "static"
 HTML_CACHE = "private, max-age=300"   # browsers cache 5 min; the CDN does not (so visits reach the server)
@@ -346,3 +349,14 @@ def apple_icon():
 @router.get("/og.png", include_in_schema=False)
 def og_image():
     return _static_file("og.png", "image/png")
+
+
+def _verification_file_route(name: str):
+    def view():
+        # Google compares the body byte-for-byte: "google-site-verification: <file name>"
+        return Response(f"google-site-verification: {name}", media_type="text/html", headers={"Cache-Control": "no-cache"})
+    return view
+
+
+for _name in GOOGLE_VERIFY_FILES:
+    router.add_api_route(f"/{_name}", _verification_file_route(_name), methods=["GET", "HEAD"], include_in_schema=False)

@@ -79,3 +79,16 @@ def test_beacon_and_hit_logging(capsys):
     hit = next(o for o in out if o["event"] == "hit" and o["path"] == "/uae-tin-vs-trn")
     assert hit["utm"] == {"src": "linkedin"} and "linkedin" in hit["referer"]
     assert client.post("/api/e", content=b"x" * 5000).status_code == 413
+
+
+def test_google_verification_file(monkeypatch):
+    import importlib, app.site as site
+    monkeypatch.setenv("GOOGLE_VERIFICATION_FILES", "google7b55f293e02f9a93.html, bad-name.html")
+    importlib.reload(site)
+    assert site.GOOGLE_VERIFY_FILES == ["google7b55f293e02f9a93.html"]
+    from fastapi import FastAPI
+    a = FastAPI(); a.include_router(site.router)
+    r = TestClient(a).get("/google7b55f293e02f9a93.html")
+    assert r.status_code == 200 and r.text == "google-site-verification: google7b55f293e02f9a93.html"
+    monkeypatch.delenv("GOOGLE_VERIFICATION_FILES")
+    importlib.reload(site)
