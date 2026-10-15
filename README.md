@@ -93,3 +93,28 @@ Transmission to an Accredited Service Provider, storage of invoices, user accoun
 A GitHub Actions workflow is kept at `deploy/github-ci.yml` (runs pytest and a Docker build). To enable it,
 move it to `.github/workflows/ci.yml`. Pushing that path needs a token with the `workflow` scope
 (`gh auth refresh -s workflow`, or a fine-grained token with Workflows: read and write).
+
+## Search, crawlers and LLMs
+
+* Server-rendered pages with canonical URLs, Open Graph/Twitter cards (`/og.png`), JSON-LD (WebSite, WebApplication,
+  FAQPage, Article, TechArticle, BreadcrumbList): `/`, `/uae-e-invoicing-guide`, `/uae-e-invoicing-deadlines-penalties`,
+  `/uae-tin-vs-trn`, `/pint-ae-validator`, `/peppol-tin-lookup`, `/rules` and one page per rule (`/rules/ibr-132-ae`).
+  Content lives in `app/content.py`; facts carry a "last reviewed" date.
+* `/sitemap.xml` (311 URLs), `/robots.txt` (search and AI crawlers allowed, `/api/` disallowed), `/llms.txt`,
+  `/llms-full.txt`.
+* IndexNow (Bing, Yandex, Seznam, Naver): `python scripts/indexnow.py https://uaeinvoicecheck.web.app` after content changes.
+* Google Search Console: add a URL-prefix property for the site, choose "HTML tag", and set the token as
+  `GOOGLE_SITE_VERIFICATION` on the Cloud Run service (Bing: `BING_SITE_VERIFICATION`). Then submit `/sitemap.xml`.
+
+## Visitor analytics (first-party, no cookies)
+
+`app/analytics.py` writes one JSON line per event to stdout, which Cloud Run stores in Cloud Logging (30 days):
+server-side page hits (covers crawlers), a browser beacon (`/static/t.js`: page view, referrer, UTM, screen,
+time zone, time on page) and tool usage summaries (never file contents or names). The privacy page states this.
+
+```bash
+python scripts/visitors.py --days 5 --exclude-me     # summary + CSVs in ~/Desktop/uae-prospects/visitors/
+```
+
+Share links with a source tag to see which channel works: `https://uaeinvoicecheck.web.app/?src=linkedin`,
+`?src=whatsapp`, `?src=email`.

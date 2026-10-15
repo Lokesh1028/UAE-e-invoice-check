@@ -1,5 +1,14 @@
 (function () {
   const $ = (s) => document.querySelector(s);
+  const _fetch = window.fetch.bind(window);
+  window.fetch = (url, opts = {}) => {
+    if (typeof url === "string" && url.startsWith("/api/") && url !== "/api/e") {
+      opts.headers = new Headers(opts.headers || {});
+      if (window.__sid) opts.headers.set("X-Session-Id", window.__sid);
+    }
+    return _fetch(url, opts);
+  };
+  const track = (n) => { try { window.__track && window.__track(n); } catch (_) {} };
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   $("#year").textContent = new Date().getFullYear();
   try {
@@ -22,6 +31,7 @@
     const f = fileInput.files[0];
     if (!f) return;
     lastFile = f;
+    track("file_selected_" + ((f.name.split(".").pop() || "none").toLowerCase().slice(0, 5)));
     fname.textContent = `${f.name} · ${(f.size / 1024).toFixed(0)} KB`;
     $("#result").classList.add("hidden"); $("#error").classList.add("hidden"); $("#mapping").classList.add("hidden");
     inspectInfo = null;
@@ -140,6 +150,7 @@
 
   async function downloadPdf() {
     if (!lastReport) return;
+    track("pdf_download_click");
     const btn = $("#dl"); btn.disabled = true; btn.textContent = "Preparing PDF…";
     try {
       const r = await fetch("/api/report.pdf", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...lastReport, sample_xml: undefined, source: { ...lastReport.source, filename: lastFile ? lastFile.name : lastReport.source.filename } }) });
@@ -151,7 +162,8 @@
 
   // ---------- XML validator
   $("#xmlfile").addEventListener("change", async (e) => { const f = e.target.files[0]; if (f) $("#xmltext").value = await f.text(); });
-  $("#xmlsample").addEventListener("click", async () => { const r = await fetch("/static/sample-invoice.xml"); $("#xmltext").value = await r.text(); });
+  $("#xmlsample").addEventListener("click", async () => {
+    track("xml_sample_loaded"); const r = await fetch("/static/sample-invoice.xml"); $("#xmltext").value = await r.text(); });
   $("#xmlform").addEventListener("submit", async (e) => {
     e.preventDefault();
     const xml = $("#xmltext").value.trim(); if (!xml) return;

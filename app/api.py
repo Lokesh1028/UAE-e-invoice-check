@@ -27,6 +27,7 @@ from app.importers.tabular import ImportError_, import_file, load_sheets
 from app.lookup.peppol import lookup_tin
 from app.report.pdf import build_report_pdf
 from app.leads import store_lead
+from app import analytics
 
 log = logging.getLogger("api")
 router = APIRouter(prefix="/api")
@@ -35,8 +36,8 @@ MAX_UPLOAD_BYTES = int(os.environ.get("MAX_UPLOAD_BYTES", str(8 * 1024 * 1024)))
 MAX_DOCS_DETAILED = int(os.environ.get("MAX_DOCS_DETAILED", "500"))
 MAX_DOCS_TOTAL = int(os.environ.get("MAX_DOCS_TOTAL", "5000"))
 HEAVY_CONCURRENCY = int(os.environ.get("HEAVY_CONCURRENCY", "2"))  # SaxonC serialises per process; 2 keeps a short queue
-HEAVY_TIMEOUT_S = float(os.environ.get("HEAVY_TIMEOUT_S", "60"))
-HEAVY_QUEUE_WAIT_S = float(os.environ.get("HEAVY_QUEUE_WAIT_S", "10"))
+HEAVY_TIMEOUT_S = float(os.environ.get("HEAVY_TIMEOUT_S", "45"))  # Firebase Hosting cuts rewrites at 60 s
+HEAVY_QUEUE_WAIT_S = float(os.environ.get("HEAVY_QUEUE_WAIT_S", "12"))
 _heavy = asyncio.Semaphore(HEAVY_CONCURRENCY)
 
 
@@ -202,21 +203,33 @@ async def readiness(request: Request, file: UploadFile = File(...), mapping: Opt
                 raise ValueError
         except ValueError:
             raise HTTPException(400, "mapping must be a JSON object of field -> column header.")
+    ext = (file.filename or "").rsplit(".", 1)[-1].lower()[:6] if "." in (file.filename or "") else "none"
+    seller_given = any(v for v in seller.values())
     try:
         result = await _run_heavy(_readiness_sync, data, file.filename or "upload", mapping_dict, sheet, include_xml, seller)
     except (ImportError_, PdfImportError, ValidationInputError) as e:
+        analytics.log_action(request, "readiness", ok=False, ext=ext, bytes=len(data), error=str(e)[:120])
         raise HTTPException(422, str(e))
-    except HTTPException:
+    except HTTPException as he:
+        analytics.log_action(request, "readiness", ok=False, ext=ext, bytes=len(data), error=f"http {he.status_code}")
         raise
     except Exception as e:  # never leak stack traces; log with a reference id
         ref = uuid.uuid4().hex[:8]
-        log.exception("readiness failed ref=%s file=%s", ref, file.filename)
+        log.exception("readiness failed ref=%s ext=%s", ref, ext)
+        analytics.log_action(request, "readiness", ok=False, ext=ext, bytes=len(data), error=f"exception ref {ref}")
         raise HTTPException(500, f"We could not process this file (ref {ref}). If it is an Excel export, try saving the invoice sheet as CSV.")
+    s_ = result.get("summary", {})
+    src = result.get("source", {})
+    analytics.log_action(request, "readiness", ok=True, ext=ext, kind=src.get("kind"), bytes=len(data),
+                         rows=src.get("rows_read"), docs=s_.get("documents"), ready=s_.get("documents_ready"),
+                         fatal=s_.get("fatal_total"), rules=s_.get("distinct_rules"), ms=s_.get("processing_ms"),
+                         masters=",".join(src.get("masters_used") or []) or None, seller_profile=seller_given,
+                         mapping_override=bool(mapping_dict), top_rules=",".join(i["rule_id"] for i in result.get("issues", [])[:5]) or None)
     return JSONResponse(json.loads(json.dumps(result, default=_json_default)))
 
 
 @router.post("/inspect")
-async def inspect(file: UploadFile = File(...)):
+async def inspect(request: Request, file: UploadFile = File(...)):
     """Sheets, detected roles and proposed column mapping, so the UI can offer corrections before running."""
     data = await _read_upload(file)
     try:
@@ -226,6 +239,7 @@ async def inspect(file: UploadFile = File(...)):
     except Exception:
         raise HTTPException(422, "Could not read this file as CSV or XLSX.")
     from app.importers.tabular import SYN
+    analytics.log_action(request, "inspect", sheets=len(sheets), invoice_sheet_found=any(s.role == "invoices" for s in sheets))
     return {"fields": list(SYN.keys()),
             "sheets": [{"name": s.name, "role": s.role, "header_row": s.header_row, "rows": len(s.rows), "headers": s.headers,
                         "mapping": {k: s.headers[i] for k, i in s.mapping.items()} if s.role == "invoices" else {}} for s in sheets]}
@@ -246,6 +260,7 @@ async def validate_xml(request: Request, file: Optional[UploadFile] = File(None)
     except ValidationInputError as e:
         raise HTTPException(422, str(e))
     fatal = [f for f in res.findings if f.severity == "fatal"]
+    analytics.log_action(request, "validate_xml", valid=res.is_valid, doc_type=res.doc_type, fatal=len(fatal), bytes=len(data))
     return {"doc_type": res.doc_type, "well_formed": res.well_formed, "xsd_valid": res.xsd_valid,
             "valid": res.is_valid, "fatal": len(fatal), "warnings": len(res.findings) - len(fatal),
             "timing_ms": round(res.timing_ms, 1), "rule_set": "PINT AE Billing 1.0.2 (2026-01-28) + UBL 2.1",
@@ -253,7 +268,7 @@ async def validate_xml(request: Request, file: Optional[UploadFile] = File(None)
 
 
 @router.get("/lookup/{tin}")
-async def lookup(tin: str):
+async def lookup(tin: str, request: Request):
     if len(tin) > 20:
         raise HTTPException(400, "TIN too long.")
     res = await run_in_threadpool(lookup_tin, tin)
@@ -271,6 +286,7 @@ async def lookup(tin: str):
     else:
         d["verdict"] = "unknown"
         d["explanation"] = d.get("error") or "Lookup could not be completed."
+    analytics.log_action(request, "lookup", verdict=d["verdict"])
     return d
 
 
@@ -285,6 +301,7 @@ async def report_pdf(request: Request):
     except Exception:
         raise HTTPException(400, "Send the readiness report JSON.")
     pdf = await _run_heavy(build_report_pdf, report)
+    analytics.log_action(request, "report_pdf", docs=(report.get("summary") or {}).get("documents"))
     name = "einvoice-readiness-report.pdf"
     return Response(pdf, media_type="application/pdf", headers={"Content-Disposition": f'attachment; filename="{name}"'})
 
@@ -309,6 +326,7 @@ async def lead(request: Request):
         "ua": request.headers.get("user-agent", "")[:200],
     }
     await run_in_threadpool(store_lead, rec)
+    analytics.log_action(request, "lead", has_email=bool(email), has_whatsapp=bool(whatsapp))
     return {"ok": True}
 
 

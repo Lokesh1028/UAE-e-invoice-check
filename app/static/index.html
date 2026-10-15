@@ -3,29 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UAE e-invoice readiness check — free PINT AE validator</title>
-<meta name="description" content="Free check: upload your invoice export (Excel, CSV, PDF or XML) and see exactly which UAE e-invoicing (PINT AE) rules your invoices fail, in plain language. No sign-up.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2310243E'/><path d='M28 52l14 14 30-32' stroke='%23E3A85A' stroke-width='10' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-<link rel="stylesheet" href="/static/styles.css">
+<!--HEAD-->
+<link rel="stylesheet" href="/static/styles.css?v={{V}}">
 </head>
 <body>
 <header class="top">
   <div class="wrap row">
-    <a class="brand" href="/"><span class="logo">✓</span> UAE e-invoice readiness check</a>
-    <nav>
-      <a href="#check">Readiness check</a>
-      <a href="#xml">XML validator</a>
-      <a href="#lookup">Buyer lookup</a>
-      <a href="#how">How it works</a>
-    </nav>
+    <a class="brand" href="/"><span class="logo">✓</span> <!--BRAND--></a>
+    <nav><!--NAV--></nav>
   </div>
 </header>
 
 <main class="wrap">
   <section class="hero">
     <p class="eyebrow">Free · No sign-up · Files are processed in memory and never stored</p>
-    <h1>Will your invoices pass the UAE e-invoicing rules?</h1>
-    <p class="lead">Upload the invoice export you already have — Excel, CSV, a PDF invoice or a PINT AE XML — and get a plain-language list of what is missing or wrong, checked against the official Ministry of Finance / OpenPeppol <strong>PINT AE 1.0.2</strong> rule set (303 rules) and the UBL 2.1 schema.</p>
+    <h1>UAE e-invoicing readiness check: will your invoices pass?</h1>
+    <p class="lead">From 2027 every UAE business must send and receive B2B and B2G invoices as structured e-invoices through an Accredited Service Provider (ASP). Upload the invoice export you already have — Excel, CSV, a PDF invoice or a PINT AE XML — and get a plain-language list of what is missing or wrong, checked against the official <strong>PINT AE 1.0.2</strong> rule set (303 rules, Peppol) and the UBL 2.1 schema. Works with exports from Tally, Zoho Books, QuickBooks, Oracle, SAP Business One and Excel.</p>
     <div class="dates">
       <div><b>Revenue ≥ AED 50M</b><span>Appoint ASP by 30 Oct 2026 · live 1 Jan 2027</span></div>
       <div><b>Revenue &lt; AED 50M</b><span>Appoint ASP by 31 Mar 2027 · live 1 Jul 2027</span></div>
@@ -116,6 +109,12 @@
     </div>
   </section>
 
+  <section id="faq" class="card plain">
+    <h2>UAE e-invoicing FAQ</h2>
+    <div class="faq"><!--FAQ--></div>
+    <p class="note">More detail: <a href="/uae-e-invoicing-guide">UAE e-invoicing guide</a> · <a href="/uae-e-invoicing-deadlines-penalties">deadlines and penalties</a> · <a href="/uae-tin-vs-trn">TIN vs TRN</a> · <a href="/rules">all 303 PINT AE rules explained</a>.</p>
+  </section>
+
   <section class="card cta" id="cta">
     <h2>Want the report emailed, or help fixing your data?</h2>
     <p class="muted">Leave an email or WhatsApp number and we will send the PDF report and a short note on the fastest way to close the gaps. No spam, no newsletter.</p>
@@ -129,10 +128,8 @@
   </section>
 </main>
 
-<footer class="wrap foot">
-  <p>Rule set: PINT AE Billing 1.0.2 (OpenPeppol / UAE Peppol Authority) · UBL 2.1 (OASIS) · Deadlines per UAE Ministry of Finance, Ministerial Decisions 243/244 of 2025 as amended · Penalties per Cabinet Decision 106 of 2025. Not affiliated with the Ministry of Finance or the Federal Tax Authority.</p>
-  <p><a href="/api/rules">All 303 rules in plain language</a> · <a href="/api/docs">API</a> · <span id="year"></span></p>
-</footer>
-<script src="/static/app.js" defer></script>
+<!--FOOTER-->
+<script src="/static/t.js?v={{V}}" defer></script>
+<script src="/static/app.js?v={{V}}" defer></script>
 </body>
 </html>

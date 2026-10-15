@@ -32,7 +32,7 @@ gcloud run deploy uae-einvoice-check \
   --min-instances 0 --max-instances 20 \
   --cpu-boost \
   --timeout 90 \
-  --set-env-vars WEB_CONCURRENCY=2,HEAVY_CONCURRENCY=2,HEAVY_QUEUE_WAIT_S=25,DATA_DIR=/tmp/data,XFF_TRUSTED_HOPS=1
+  --set-env-vars WEB_CONCURRENCY=2,HEAVY_CONCURRENCY=2,HEAVY_QUEUE_WAIT_S=12,HEAVY_TIMEOUT_S=45,DATA_DIR=/tmp/data,APP_VERSION=0.2.2,BUILD_DATE=2026-10-15,PUBLIC_BASE_URL=https://uaeinvoicecheck.web.app,REDIRECT_TO_CANONICAL=1
 ```
 
 * `--source .` builds the Dockerfile with Cloud Build; no local Docker needed.
@@ -54,6 +54,18 @@ Every lead is written to Cloud Logging (kept 30 days by default):
 The `leads.jsonl` file does not survive restarts on Cloud Run. For a live sheet, point
 `LEAD_WEBHOOK_URL` at a Google Apps Script web app that appends rows to a Google Sheet, or at an n8n/Zapier
 webhook, and redeploy with the URL filled in.
+
+## Short address (Firebase Hosting, free)
+
+`https://uaeinvoicecheck.web.app` is a Firebase Hosting site in the same project whose only job is to rewrite
+every request to the Cloud Run service (config in `firebase.json`). It was created once with the Firebase
+Hosting REST API; `scripts/firebase_release.sh` republishes the rewrite if it ever changes. Cloud Run deploys
+do not need a new Firebase release.
+
+* `PUBLIC_BASE_URL` sets canonical links, sitemap and llms.txt to the short address.
+* `REDIRECT_TO_CANONICAL=1` sends anyone opening the long `*.run.app` address to the short one (301).
+  Requests arriving through Firebase carry `X-Forwarded-Host: uaeinvoicecheck.web.app` and are not redirected.
+* Firebase cuts rewrites at 60 s, hence `HEAVY_TIMEOUT_S=45` and `HEAVY_QUEUE_WAIT_S=12`.
 
 ## Custom domain
 

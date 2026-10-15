@@ -6,6 +6,7 @@ Production:    see Dockerfile (uvicorn with N workers behind the platform's load
 """
 from __future__ import annotations
 
+import json
 import logging
 import os
 import time
@@ -15,11 +16,13 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.responses import FileResponse, JSONResponse, Response
+from fastapi.responses import JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from app.api import router
+from app import analytics
+from app.api import router as api_router
 from app.engine.validator import Validator
+from app.site import BASE, router as site_router
 
 logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO"),
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
@@ -28,14 +31,14 @@ log = logging.getLogger("main")
 STATIC = Path(__file__).resolve().parent / "static"
 RATE_LIMIT_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "40"))
 RATE_LIMIT_BURST = int(os.environ.get("RATE_LIMIT_BURST", "15"))
-TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") == "1"
-# Number of proxies in front of the app that APPEND to X-Forwarded-For. The client IP is read that many
-# entries from the right, because everything to the left can be forged by the client.
-#   Cloud Run / Fly.io directly: 1      Cloudflare -> Cloud Run: 2
-XFF_TRUSTED_HOPS = max(1, int(os.environ.get("XFF_TRUSTED_HOPS", "1")))
-APP_VERSION = os.environ.get("APP_VERSION", "0.1.0")
+APP_VERSION = os.environ.get("APP_VERSION", "0.2.0")
+# Send visitors who open the long *.run.app address to the canonical short address.
+# Only enable once the CDN in front (Firebase Hosting) is confirmed to send X-Forwarded-Host,
+# otherwise requests arriving through it would loop.
+REDIRECT_TO_CANONICAL = os.environ.get("REDIRECT_TO_CANONICAL", "0") == "1"
+CANONICAL_HOST = BASE.split("://", 1)[-1]
 
-app = FastAPI(title="UAE e-invoice readiness check", version=APP_VERSION, docs_url="/api/docs", redoc_url=None, openapi_url="/api/openapi.json")
+app = FastAPI(title="UAE Invoice Check", version=APP_VERSION, docs_url="/api/docs", redoc_url=None, openapi_url="/api/openapi.json")
 app.add_middleware(GZipMiddleware, minimum_size=1024)
 
 
@@ -52,23 +55,13 @@ _buckets: dict[str, _Bucket] = defaultdict(_Bucket)
 _last_sweep = time.monotonic()
 
 
-def _client_ip(request: Request) -> str:
-    if TRUST_PROXY:
-        xff = request.headers.get("x-forwarded-for")
-        if xff:
-            parts = [p.strip() for p in xff.split(",") if p.strip()]
-            if parts:
-                return parts[-XFF_TRUSTED_HOPS] if len(parts) >= XFF_TRUSTED_HOPS else parts[0]
-    return request.client.host if request.client else "unknown"
-
-
 def _allow(ip: str) -> tuple[bool, float]:
     global _last_sweep
     now = time.monotonic()
     b = _buckets[ip]
     b.tokens = min(RATE_LIMIT_BURST, b.tokens + (now - b.ts) * (RATE_LIMIT_PER_MIN / 60.0))
     b.ts = now
-    if now - _last_sweep > 300:  # keep the dict bounded
+    if now - _last_sweep > 300:
         _last_sweep = now
         for k in [k for k, v in _buckets.items() if now - v.ts > 600]:
             _buckets.pop(k, None)
@@ -78,31 +71,51 @@ def _allow(ip: str) -> tuple[bool, float]:
     return False, (1 - b.tokens) / (RATE_LIMIT_PER_MIN / 60.0)
 
 
+def _is_page(path: str) -> bool:
+    """Requests worth recording as a visit hit (HTML pages and crawler files, not assets or API)."""
+    if path.startswith(("/api/", "/static/", "/health", "/readyz")):
+        return False
+    if path in ("/favicon.ico", "/apple-touch-icon.png", "/og.png"):
+        return False
+    return True
+
+
 @app.middleware("http")
 async def guard(request: Request, call_next):
     rid = uuid.uuid4().hex[:12]
     t0 = time.perf_counter()
-    if request.url.path.startswith("/api/") and request.method != "GET" or request.url.path.startswith("/api/lookup"):
-        ok, wait = _allow(_client_ip(request))
+    path = request.url.path
+
+    if REDIRECT_TO_CANONICAL and request.method == "GET" and not path.startswith(("/api/", "/health", "/readyz")):
+        host = request.headers.get("host", "")
+        fwd = request.headers.get("x-forwarded-host", "")
+        if host.endswith(".run.app") and CANONICAL_HOST not in fwd:
+            target = BASE + path + (("?" + request.url.query) if request.url.query else "")
+            return RedirectResponse(target, status_code=301)
+
+    if (path.startswith("/api/") and request.method != "GET") or path.startswith("/api/lookup"):
+        ok, wait = _allow(analytics.client_ip(request))
         if not ok:
             return JSONResponse({"detail": "Too many requests. Please wait a moment."}, status_code=429,
                                 headers={"Retry-After": str(int(wait) + 1)})
     try:
         response = await call_next(request)
     except Exception:
-        log.exception("unhandled rid=%s path=%s", rid, request.url.path)
+        log.exception("unhandled rid=%s path=%s", rid, path)
         return JSONResponse({"detail": f"Internal error (ref {rid})."}, status_code=500)
     response.headers["X-Request-ID"] = rid
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
-    if request.url.path.startswith("/api/"):
+    if path.startswith("/api/"):
         response.headers["Cache-Control"] = "no-store"
-    elif request.url.path.startswith("/static/"):
-        response.headers["Cache-Control"] = "public, max-age=86400"
-    if request.url.path.startswith("/api/") and request.method != "GET":
-        log.info("rid=%s %s %s -> %s %.0fms", rid, request.method, request.url.path, response.status_code, (time.perf_counter() - t0) * 1000)
+    elif path.startswith("/static/"):
+        response.headers.setdefault("Cache-Control", "public, max-age=86400")
+    if request.method in ("GET", "HEAD") and _is_page(path):
+        analytics.log_hit(request, response.status_code)
+    if path.startswith("/api/") and request.method != "GET":
+        log.info("rid=%s %s %s -> %s %.0fms", rid, request.method, path, response.status_code, (time.perf_counter() - t0) * 1000)
     return response
 
 
@@ -119,19 +132,24 @@ def healthz():
 
 @app.get("/readyz", include_in_schema=False)
 def readyz():
-    v = Validator.get()
-    return {"ok": v is not None, "rules": "PINT AE 1.0.2"}
+    return {"ok": Validator.get() is not None, "rules": "PINT AE 1.0.2"}
 
 
-app.include_router(router)
+@app.post("/api/e", include_in_schema=False)
+async def beacon(request: Request):
+    """Browser beacon (page view, time on page, UI events). Body is small JSON sent as text/plain."""
+    raw = await request.body()
+    if len(raw) > 4096:
+        return Response(status_code=413)
+    try:
+        body = json.loads(raw or b"{}")
+        if isinstance(body, dict):
+            analytics.log_beacon(request, body)
+    except ValueError:
+        pass
+    return Response(status_code=204)
+
+
+app.include_router(api_router)
+app.include_router(site_router)
 app.mount("/static", StaticFiles(directory=str(STATIC)), name="static")
-
-
-@app.get("/", include_in_schema=False)
-def index():
-    return FileResponse(STATIC / "index.html", headers={"Cache-Control": "public, max-age=300"})
-
-
-@app.get("/robots.txt", include_in_schema=False)
-def robots():
-    return Response("User-agent: *\nAllow: /\nDisallow: /api/\n", media_type="text/plain")
