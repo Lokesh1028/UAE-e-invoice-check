@@ -88,10 +88,13 @@ async def guard(request: Request, call_next):
 
     if REDIRECT_TO_CANONICAL and request.method == "GET" and not path.startswith(("/api/", "/health", "/readyz")):
         host = request.headers.get("host", "")
-        fwd = request.headers.get("x-forwarded-host", "")
-        if host.endswith(".run.app") and CANONICAL_HOST not in fwd:
+        via_cdn = any(CANONICAL_HOST in request.headers.get(h, "") for h in ("x-forwarded-host", "x-fh-requested-host"))
+        kind, _ = analytics.classify_agent(request.headers.get("user-agent", ""))
+        # Never redirect crawlers (canonical tags handle duplicates) and never let a CDN cache the redirect:
+        # Firebase does not always mark crawler requests, and a cached self-redirect loops forever.
+        if host.endswith(".run.app") and not via_cdn and kind == "human":
             target = BASE + path + (("?" + request.url.query) if request.url.query else "")
-            return RedirectResponse(target, status_code=301)
+            return RedirectResponse(target, status_code=302, headers={"Cache-Control": "no-store"})
 
     if (path.startswith("/api/") and request.method != "GET") or path.startswith("/api/lookup"):
         ok, wait = _allow(analytics.client_ip(request))

@@ -32,7 +32,7 @@ gcloud run deploy uae-einvoice-check \
   --min-instances 0 --max-instances 20 \
   --cpu-boost \
   --timeout 90 \
-  --set-env-vars WEB_CONCURRENCY=2,HEAVY_CONCURRENCY=2,HEAVY_QUEUE_WAIT_S=12,HEAVY_TIMEOUT_S=45,DATA_DIR=/tmp/data,APP_VERSION=0.2.4,BUILD_DATE=2026-10-15,PUBLIC_BASE_URL=https://uaeinvoicecheck.web.app,REDIRECT_TO_CANONICAL=1,GOOGLE_SITE_VERIFICATION=DeFElMnyjlhtqo5T0b9dYbSZO6xkwWttd2a6Syk9Hq8,GOOGLE_VERIFICATION_FILES=google7b55f293e02f9a93.html
+  --set-env-vars WEB_CONCURRENCY=2,HEAVY_CONCURRENCY=2,HEAVY_QUEUE_WAIT_S=12,HEAVY_TIMEOUT_S=45,DATA_DIR=/tmp/data,APP_VERSION=0.2.5,BUILD_DATE=2026-10-15,PUBLIC_BASE_URL=https://uaeinvoicecheck.web.app,REDIRECT_TO_CANONICAL=0,GOOGLE_SITE_VERIFICATION=DeFElMnyjlhtqo5T0b9dYbSZO6xkwWttd2a6Syk9Hq8,GOOGLE_VERIFICATION_FILES=google7b55f293e02f9a93.html
 ```
 
 * `--source .` builds the Dockerfile with Cloud Build; no local Docker needed.
@@ -63,7 +63,7 @@ Hosting REST API; `scripts/firebase_release.sh` republishes the rewrite if it ev
 do not need a new Firebase release.
 
 * `PUBLIC_BASE_URL` sets canonical links, sitemap and llms.txt to the short address.
-* `REDIRECT_TO_CANONICAL=1` sends anyone opening the long `*.run.app` address to the short one (301).
+* `REDIRECT_TO_CANONICAL=0` sends anyone opening the long `*.run.app` address to the short one (301).
   Requests arriving through Firebase carry `X-Forwarded-Host: uaeinvoicecheck.web.app` and are not redirected.
 * Firebase cuts rewrites at 60 s, hence `HEAVY_TIMEOUT_S=45` and `HEAVY_QUEUE_WAIT_S=12`.
 
