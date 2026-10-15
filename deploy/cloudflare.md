@@ -8,4 +8,5 @@
 5. Security → Bots: enable "Bot fight mode".
 6. Optional: Turnstile on the lead form if spam appears.
 
-The app already reads `CF-Connecting-IP` / `X-Forwarded-For` for its own rate limiter (TRUST_PROXY=1).
+When Cloudflare is in front of Cloud Run, redeploy with `XFF_TRUSTED_HOPS=2` so the app's own rate limiter
+reads the visitor's IP (Cloudflare appends it, then Cloud Run appends Cloudflare's edge IP). Without Cloudflare keep the default of 1.

@@ -81,3 +81,14 @@ def test_private_workbooks(path):
     assert d["summary"]["documents"] >= 30
     assert "entities" in d["source"]["masters_used"] and "customers" in d["source"]["masters_used"]
     assert d["issues"][0]["title"]
+
+
+def test_rate_limit_ignores_forged_forwarded_for():
+    from app import main as m
+    m._buckets.clear()
+    codes = []
+    for i in range(40):
+        r = client.get("/api/lookup/12", headers={"X-Forwarded-For": f"10.0.{i}.1, 203.0.113.7"})
+        codes.append(r.status_code)
+    assert 429 in codes  # all requests come from 203.0.113.7 regardless of the forged first entry
+    assert client.get("/health").json()["ok"] is True

@@ -1,0 +1,12 @@
+.gcloudignore
+.git
+.gitignore
+.venv/
+tests/
+data/
+scripts/
+__pycache__/
+*.pyc
+.pytest_cache/
+deploy/
+*.md

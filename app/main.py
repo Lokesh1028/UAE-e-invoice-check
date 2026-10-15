@@ -29,6 +29,10 @@ STATIC = Path(__file__).resolve().parent / "static"
 RATE_LIMIT_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "40"))
 RATE_LIMIT_BURST = int(os.environ.get("RATE_LIMIT_BURST", "15"))
 TRUST_PROXY = os.environ.get("TRUST_PROXY", "1") == "1"
+# Number of proxies in front of the app that APPEND to X-Forwarded-For. The client IP is read that many
+# entries from the right, because everything to the left can be forged by the client.
+#   Cloud Run / Fly.io directly: 1      Cloudflare -> Cloud Run: 2
+XFF_TRUSTED_HOPS = max(1, int(os.environ.get("XFF_TRUSTED_HOPS", "1")))
 APP_VERSION = os.environ.get("APP_VERSION", "0.1.0")
 
 app = FastAPI(title="UAE e-invoice readiness check", version=APP_VERSION, docs_url="/api/docs", redoc_url=None, openapi_url="/api/openapi.json")
@@ -52,10 +56,9 @@ def _client_ip(request: Request) -> str:
     if TRUST_PROXY:
         xff = request.headers.get("x-forwarded-for")
         if xff:
-            return xff.split(",")[0].strip()
-        cf = request.headers.get("cf-connecting-ip")
-        if cf:
-            return cf
+            parts = [p.strip() for p in xff.split(",") if p.strip()]
+            if parts:
+                return parts[-XFF_TRUSTED_HOPS] if len(parts) >= XFF_TRUSTED_HOPS else parts[0]
     return request.client.host if request.client else "unknown"
 
 
@@ -109,6 +112,7 @@ def _warm():
 
 
 @app.get("/healthz", include_in_schema=False)
+@app.get("/health", include_in_schema=False)  # Cloud Run reserves paths ending in "z" at its front end
 def healthz():
     return {"ok": True, "version": APP_VERSION}
 
