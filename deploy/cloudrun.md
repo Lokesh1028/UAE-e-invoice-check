@@ -50,7 +50,7 @@ gcloud run deploy uae-einvoice-check \
 ## Leads
 
 Every lead is written to Cloud Logging (kept 30 days by default):
-`gcloud logging read 'textPayload:"LEAD "' --freshness=30d --format='value(textPayload)'`.
+`gcloud logging read 'textPayload:"INFO leads LEAD"' --freshness=30d --format='value(textPayload)'`.
 The `leads.jsonl` file does not survive restarts on Cloud Run. For a live sheet, point
 `LEAD_WEBHOOK_URL` at a Google Apps Script web app that appends rows to a Google Sheet, or at an n8n/Zapier
 webhook, and redeploy with the URL filled in.
