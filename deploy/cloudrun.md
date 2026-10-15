@@ -28,14 +28,20 @@ gcloud run deploy uae-einvoice-check \
   --region me-central1 \
   --allow-unauthenticated \
   --cpu 2 --memory 1Gi \
-  --concurrency 20 \
-  --min-instances 0 --max-instances 10 \
+  --concurrency 8 \
+  --min-instances 0 --max-instances 20 \
+  --cpu-boost \
   --timeout 90 \
-  --set-env-vars WEB_CONCURRENCY=2,HEAVY_CONCURRENCY=2,DATA_DIR=/tmp/data,LEAD_WEBHOOK_URL=
+  --set-env-vars WEB_CONCURRENCY=2,HEAVY_CONCURRENCY=2,HEAVY_QUEUE_WAIT_S=25,DATA_DIR=/tmp/data,XFF_TRUSTED_HOPS=1
 ```
 
 * `--source .` builds the Dockerfile with Cloud Build; no local Docker needed.
-* `--max-instances 10` caps the worst-case bill. Raise it when traffic justifies it.
+* `--concurrency 8` makes Cloud Run add instances early instead of queueing inside one; tested with 100
+  simultaneous uploaders (mix of 200-invoice CSVs, workbooks and XML): 997/997 succeeded in 30 s on 20 instances.
+* `--max-instances 20` caps the worst-case bill. Raise it when traffic justifies it.
+* First-time setup on a new project: if the build fails with PERMISSION_DENIED for the compute service account, run
+  `gcloud projects add-iam-policy-binding PROJECT_ID --member=serviceAccount:PROJECT_NUMBER-compute@developer.gserviceaccount.com --role=roles/run.builder`.
+* Health check URL is `/health` (Cloud Run blocks paths ending in `z`, so `/healthz` only works inside the container).
 * `--min-instances 0` costs nothing when idle; the first request after idle waits a few seconds.
   Set `--min-instances 1` during campaigns or demos to remove that wait (this is billed while idle).
 * Re-run the same command to ship a new version. Cloud Run keeps old revisions for instant rollback:
@@ -43,7 +49,9 @@ gcloud run deploy uae-einvoice-check \
 
 ## Leads
 
-The Cloud Run filesystem is ephemeral, so the `leads.jsonl` file does not survive restarts. Point
+Every lead is written to Cloud Logging (kept 30 days by default):
+`gcloud logging read 'textPayload:"LEAD "' --freshness=30d --format='value(textPayload)'`.
+The `leads.jsonl` file does not survive restarts on Cloud Run. For a live sheet, point
 `LEAD_WEBHOOK_URL` at a Google Apps Script web app that appends rows to a Google Sheet, or at an n8n/Zapier
 webhook, and redeploy with the URL filled in.
 

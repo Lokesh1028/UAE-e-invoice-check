@@ -23,6 +23,9 @@ _lock = threading.Lock()
 def store_lead(rec: dict) -> None:
     if DISABLED:
         return
+    # Always emit to the platform log too: on Cloud Run the filesystem is ephemeral, the log is not.
+    # Retrieve with: gcloud logging read 'textPayload:"LEAD "' --freshness=30d --format='value(textPayload)'
+    log.info("LEAD %s", json.dumps(rec, ensure_ascii=False))
     try:
         DATA_DIR.mkdir(parents=True, exist_ok=True)
         with _lock, open(DATA_DIR / "leads.jsonl", "a", encoding="utf-8") as fh:
