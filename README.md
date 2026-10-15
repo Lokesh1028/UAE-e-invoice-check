@@ -52,7 +52,7 @@ fly open
 ```
 
 Then put Cloudflare in front (see `deploy/cloudflare.md`) for CDN caching, bot protection and a second rate limit.
-Cloud Run alternative: `deploy/cloudrun.md`.
+Recommended host: Google Cloud Run in me-central1, see `deploy/cloudrun.md`. Fly.io config above is the alternative.
 
 ### Environment
 
