@@ -57,15 +57,21 @@ webhook, and redeploy with the URL filled in.
 
 ## Short address (Firebase Hosting, free)
 
-`https://uaeinvoicecheck.web.app` is a Firebase Hosting site in the same project whose only job is to rewrite
-every request to the Cloud Run service (config in `firebase.json`). It was created once with the Firebase
-Hosting REST API; `scripts/firebase_release.sh` republishes the rewrite if it ever changes. Cloud Run deploys
-do not need a new Firebase release.
+`https://uaeinvoicecheck.web.app` is a Firebase Hosting site in the same project.
 
-* `PUBLIC_BASE_URL` sets canonical links, sitemap and llms.txt to the short address.
-* `REDIRECT_TO_CANONICAL=0` sends anyone opening the long `*.run.app` address to the short one (301).
-  Requests arriving through Firebase carry `X-Forwarded-Host: uaeinvoicecheck.web.app` and are not redirected.
+* **Crawlable pages are static files on Hosting**; everything else (API, tools, health) is rewritten to Cloud Run.
+  Reason: through a pure Cloud Run rewrite, Googlebot requests that miss the Firebase/Fastly cache fail at the
+  CDN ("robots.txt unreachable" / "URL is not available to Google"), while browsers and other crawlers work.
+  Static files are served before rewrites, so Googlebot gets them. Verified with Google's Rich Results Test.
+* **After every Cloud Run deploy that changes pages, republish the static site:**
+  `./.venv/bin/python scripts/firebase_deploy.py` (renders every page with the app itself and uploads only changed files).
+  Never publish a rewrite-only release; it would take the static pages away.
+* Google verification files are deliberately NOT static (cleanUrls would 301 them); Cloud Run serves them.
 * Firebase cuts rewrites at 60 s, hence `HEAVY_TIMEOUT_S=45` and `HEAVY_QUEUE_WAIT_S=12`.
+* `REDIRECT_TO_CANONICAL` is OFF. When on, it sends human visitors of the long `*.run.app` address to the short one
+  (302, no-store, crawlers never redirected). Canonical tags already point search engines at the short address.
+* Request logs: Hosting's `cloudLoggingEnabled` is on; `scripts/visitors.py` reads them (log
+  `firebasehosting.googleapis.com/webrequests`, includes client IP, city and country). Entries arrive in batches.
 
 ## Custom domain
 

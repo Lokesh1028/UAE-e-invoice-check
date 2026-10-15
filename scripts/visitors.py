@@ -62,8 +62,39 @@ def fetch_events(days: int) -> list[dict]:
             continue
         p["_revision"] = (r.get("resource") or {}).get("labels", {}).get("revision_name")
         events.append(p)
+    events.extend(fetch_hosting_hits(days))
+    if any(e.get("_src") == "hosting" for e in events):
+        # Firebase Hosting logs every request (static pages included); the app's own "hit" events would double count
+        events = [e for e in events if not (e.get("event") == "hit" and e.get("_src") != "hosting")]
     events.sort(key=lambda e: e.get("ts", 0))
     return events
+
+
+def fetch_hosting_hits(days: int) -> list[dict]:
+    """Page requests as logged by Firebase Hosting (cloudLoggingEnabled on the site)."""
+    flt = 'resource.type="firebase_domain"'
+    cmd = [gcloud(), "logging", "read", flt, f"--freshness={days}d", "--limit=100000", "--format=json", f"--project={PROJECT}"]
+    out = subprocess.run(cmd, capture_output=True, text=True)
+    if out.returncode != 0:
+        return []
+    hits = []
+    for r in json.loads(out.stdout or "[]"):
+        h = r.get("httpRequest") or {}
+        url = h.get("requestUrl", "")
+        path = re.sub(r"^https?://[^/]+", "", url).split("?")[0] or "/"
+        if path.startswith(("/api/", "/static/", "/health")) or path in ("/favicon.ico", "/apple-touch-icon.png"):
+            continue
+        q = url.split("?", 1)[1] if "?" in url else ""
+        utm = dict(kv.split("=", 1) for kv in q.split("&") if "=" in kv and kv.split("=", 1)[0] in
+                   ("utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "src", "ref"))
+        ts = r.get("timestamp", "")
+        try:
+            t = datetime.fromisoformat(ts.replace("Z", "+00:00")).timestamp()
+        except ValueError:
+            continue
+        hits.append({"event": "hit", "_src": "hosting", "ts": t, "path": path, "status": h.get("status"),
+                     "ua": h.get("userAgent", ""), "ip": h.get("remoteIp", ""), "referer": h.get("referer", ""), "utm": utm})
+    return hits
 
 
 # ------------------------------------------------------------------ IP enrichment

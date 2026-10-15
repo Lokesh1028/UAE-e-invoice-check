@@ -102,6 +102,8 @@ move it to `.github/workflows/ci.yml`. Pushing that path needs a token with the 
   Content lives in `app/content.py`; facts carry a "last reviewed" date.
 * `/sitemap.xml` (311 URLs), `/robots.txt` (search and AI crawlers allowed, `/api/` disallowed), `/llms.txt`,
   `/llms-full.txt`.
+* Pages are published as static files on Firebase Hosting (`scripts/firebase_deploy.py`) because Googlebot cannot
+  fetch them through the Cloud Run rewrite. Re-run it after content changes.
 * IndexNow (Bing, Yandex, Seznam, Naver): `python scripts/indexnow.py https://uaeinvoicecheck.web.app` after content changes.
 * Google Search Console: add a URL-prefix property for the site, choose "HTML tag", and set the token as
   `GOOGLE_SITE_VERIFICATION` on the Cloud Run service (Bing: `BING_SITE_VERIFICATION`). Then submit `/sitemap.xml`.

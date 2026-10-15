@@ -2,8 +2,11 @@
   "hosting": {
     "site": "uaeinvoicecheck",
     "public": "deploy/firebase-public",
+    "cleanUrls": true,
+    "trailingSlash": false,
     "rewrites": [
       { "source": "**", "run": { "serviceId": "uae-einvoice-check", "region": "me-central1" } }
-    ]
+    ],
+    "//": "Static pages are generated and uploaded by scripts/firebase_deploy.py, not by the Firebase CLI."
   }
 }
