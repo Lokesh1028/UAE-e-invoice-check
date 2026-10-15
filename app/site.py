@@ -33,6 +33,7 @@ GOOGLE_VERIFY_FILES = [f.strip() for f in os.environ.get("GOOGLE_VERIFICATION_FI
 BING_VERIFY = os.environ.get("BING_SITE_VERIFICATION", "")
 STATIC = Path(__file__).resolve().parent / "static"
 HTML_CACHE = "private, max-age=300"   # browsers cache 5 min; the CDN does not (so visits reach the server)
+CRAWLER_CACHE = "no-cache"            # sitemap/robots/llms: every crawler fetch reaches the server and is logged
 
 router = APIRouter()
 e = html.escape
@@ -252,7 +253,7 @@ def all_urls() -> list[tuple[str, str]]:
 def sitemap():
     items = "".join(f"<url><loc>{e(BASE + p)}</loc><lastmod>{BUILD_DATE}</lastmod><priority>{pr}</priority></url>" for p, pr in all_urls())
     xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{items}</urlset>'
-    return Response(xml, media_type="application/xml", headers={"Cache-Control": "public, max-age=3600"})
+    return Response(xml, media_type="application/xml", headers={"Cache-Control": CRAWLER_CACHE})
 
 
 AI_AGENTS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "Claude-SearchBot", "anthropic-ai", "PerplexityBot",
@@ -265,7 +266,7 @@ def robots():
     for a in AI_AGENTS:
         lines += [f"User-agent: {a}", "Allow: /", "Disallow: /api/", ""]
     lines += [f"Sitemap: {BASE}/sitemap.xml", f"# LLM summary: {BASE}/llms.txt"]
-    return PlainTextResponse("\n".join(lines) + "\n", headers={"Cache-Control": "public, max-age=3600"})
+    return PlainTextResponse("\n".join(lines) + "\n", headers={"Cache-Control": CRAWLER_CACHE})
 
 
 def _text(html_str: str) -> str:
@@ -307,7 +308,7 @@ Key facts (reviewed {content.REVIEWED}): UAE e-invoicing covers B2B and B2G tran
 ## Optional
 - [Privacy]({BASE}/privacy): uploaded files are processed in memory and never stored.
 """
-    return PlainTextResponse(txt, headers={"Cache-Control": "public, max-age=3600"})
+    return PlainTextResponse(txt, headers={"Cache-Control": CRAWLER_CACHE})
 
 
 @router.get("/llms-full.txt", include_in_schema=False)
@@ -321,7 +322,7 @@ def llms_full():
     parts.append("\n\n# PINT AE rules (id — title — explanation — fix)\n")
     for r in _rules():
         parts.append(f"- {r['rule_id']} — {r['title']} — {r['plain']}" + (f" Fix: {r['fix']}" if r.get("fix") else ""))
-    return PlainTextResponse("\n".join(parts) + "\n", headers={"Cache-Control": "public, max-age=3600"})
+    return PlainTextResponse("\n".join(parts) + "\n", headers={"Cache-Control": CRAWLER_CACHE})
 
 
 @router.get(f"/{INDEXNOW_KEY}.txt", include_in_schema=False)
