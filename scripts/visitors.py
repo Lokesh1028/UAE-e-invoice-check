@@ -62,10 +62,13 @@ def fetch_events(days: int) -> list[dict]:
             continue
         p["_revision"] = (r.get("resource") or {}).get("labels", {}).get("revision_name")
         events.append(p)
-    events.extend(fetch_hosting_hits(days))
-    if any(e.get("_src") == "hosting" for e in events):
-        # Firebase Hosting logs every request (static pages included); the app's own "hit" events would double count
-        events = [e for e in events if not (e.get("event") == "hit" and e.get("_src") != "hosting")]
+    hosting = fetch_hosting_hits(days)
+    # A request rewritten to Cloud Run is logged twice (Hosting + app). Drop the app copy when Hosting has it.
+    idx = defaultdict(list)
+    for h in hosting:
+        idx[(h["path"], h["ua"])].append(h["ts"])
+    events = [e for e in events if not (e.get("event") == "hit" and any(abs(t - e.get("ts", 0)) < 15 for t in idx.get((e.get("path"), e.get("ua", "")), [])))]
+    events.extend(hosting)
     events.sort(key=lambda e: e.get("ts", 0))
     return events
 
